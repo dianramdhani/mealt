@@ -10,17 +10,22 @@
             controller: _
         });
 
-    _.$inject = ['$scope', 'MainService'];
-    function _($scope, MainService) {
+    _.$inject = ['$scope', '$state', 'MainService'];
+    function _($scope, $state, MainService) {
         let $ctrl = this;
         $ctrl.$onInit = () => { };
 
         $scope.login = async () => {
-            $scope.res = await MainService.login({
-                username: $scope.data.username,
-                password: $scope.data.password
-            });
-            $scope.$apply();
+            try {
+                await MainService.login({
+                    username: $scope.data.username,
+                    password: $scope.data.password
+                });
+                $state.go('user');
+            } catch (error) {
+                $scope.res = error;
+                $scope.$apply();
+            }
         };
     }
 })();
