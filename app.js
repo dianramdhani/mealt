@@ -20,6 +20,7 @@ require('./services/main.service');
 
 // VIEWS
 require('./views/login/login');
+require('./views/user-container/user-container');
 
 // RUN
 (function () {
@@ -30,7 +31,6 @@ require('./views/login/login');
 
     Run.$inject = ['$state'];
     function Run($state) {
-        console.log('testing');
-        $state.go('login');
+        $state.go('user');
     }
 })();

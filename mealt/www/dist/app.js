@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// LIBS\r\n__webpack_require__(/*! ./node_modules/jquery/dist/jquery */ \"./node_modules/jquery/dist/jquery.js\");\r\n__webpack_require__(/*! ./node_modules/popper.js/dist/umd/popper */ \"./node_modules/popper.js/dist/umd/popper.js\");\r\n__webpack_require__(/*! ./node_modules/bootstrap/dist/js/bootstrap */ \"./node_modules/bootstrap/dist/js/bootstrap.js\");\r\n__webpack_require__(/*! ./node_modules/angular/angular */ \"./node_modules/angular/angular.js\");\r\n__webpack_require__(/*! ./node_modules/angular-ui-router/release/angular-ui-router */ \"./node_modules/angular-ui-router/release/angular-ui-router.js\");\r\n__webpack_require__(/*! ./node_modules/angular-cookies/angular-cookies */ \"./node_modules/angular-cookies/angular-cookies.js\");\r\n\r\n// ANGULARJS\r\nwindow.app = angular.module('Mealt', ['ui.router', 'ngCookies']);\r\n\r\n// CONFIG\r\n__webpack_require__(/*! ./config */ \"./config.js\");\r\n\r\n// ROUTES\r\n__webpack_require__(/*! ./routes/app.route */ \"./routes/app.route.js\");\r\n\r\n// SERVICES\r\n__webpack_require__(/*! ./services/main.service */ \"./services/main.service.js\");\r\n\r\n// VIEWS\r\n__webpack_require__(/*! ./views/login/login */ \"./views/login/login.js\");\r\n\r\n// RUN\r\n(function () {\r\n    'use strict';\r\n\r\n    window.app\r\n        .run(Run);\r\n\r\n    Run.$inject = ['$state'];\r\n    function Run($state) {\r\n        console.log('testing');\r\n        $state.go('login');\r\n    }\r\n})();\n\n//# sourceURL=webpack:///./app.js?");
+eval("// LIBS\r\n__webpack_require__(/*! ./node_modules/jquery/dist/jquery */ \"./node_modules/jquery/dist/jquery.js\");\r\n__webpack_require__(/*! ./node_modules/popper.js/dist/umd/popper */ \"./node_modules/popper.js/dist/umd/popper.js\");\r\n__webpack_require__(/*! ./node_modules/bootstrap/dist/js/bootstrap */ \"./node_modules/bootstrap/dist/js/bootstrap.js\");\r\n__webpack_require__(/*! ./node_modules/angular/angular */ \"./node_modules/angular/angular.js\");\r\n__webpack_require__(/*! ./node_modules/angular-ui-router/release/angular-ui-router */ \"./node_modules/angular-ui-router/release/angular-ui-router.js\");\r\n__webpack_require__(/*! ./node_modules/angular-cookies/angular-cookies */ \"./node_modules/angular-cookies/angular-cookies.js\");\r\n\r\n// ANGULARJS\r\nwindow.app = angular.module('Mealt', ['ui.router', 'ngCookies']);\r\n\r\n// CONFIG\r\n__webpack_require__(/*! ./config */ \"./config.js\");\r\n\r\n// ROUTES\r\n__webpack_require__(/*! ./routes/app.route */ \"./routes/app.route.js\");\r\n\r\n// SERVICES\r\n__webpack_require__(/*! ./services/main.service */ \"./services/main.service.js\");\r\n\r\n// VIEWS\r\n__webpack_require__(/*! ./views/login/login */ \"./views/login/login.js\");\r\n__webpack_require__(/*! ./views/user-container/user-container */ \"./views/user-container/user-container.js\");\r\n\r\n// RUN\r\n(function () {\r\n    'use strict';\r\n\r\n    window.app\r\n        .run(Run);\r\n\r\n    Run.$inject = ['$state'];\r\n    function Run($state) {\r\n        $state.go('user');\r\n    }\r\n})();\n\n//# sourceURL=webpack:///./app.js?");
 
 /***/ }),
 
@@ -215,7 +215,7 @@ eval("var g;\n\n// This works in non-strict mode\ng = (function() {\n\treturn th
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("(function () {\r\n    'use strict';\r\n\r\n    window.app\r\n        .config(RouteApp);\r\n\r\n    RouteApp.$inject = ['$stateProvider'];\r\n\r\n    function RouteApp($stateProvider) {\r\n        [\r\n            { name: 'login', url: '/login', component: 'login' },\r\n        ]\r\n            .forEach(state => $stateProvider.state(state));\r\n    }\r\n})();\n\n//# sourceURL=webpack:///./routes/app.route.js?");
+eval("(function () {\r\n    'use strict';\r\n\r\n    window.app\r\n        .config(RouteApp);\r\n\r\n    RouteApp.$inject = ['$stateProvider'];\r\n\r\n    function RouteApp($stateProvider) {\r\n        [\r\n            { name: 'login', url: '/login', component: 'login' },\r\n            { name: 'user', url: '/user', component: 'userContainer' },\r\n        ]\r\n            .forEach(state => $stateProvider.state(state));\r\n    }\r\n})();\n\n//# sourceURL=webpack:///./routes/app.route.js?");
 
 /***/ }),
 
@@ -249,6 +249,28 @@ eval("module.exports = \"<form name=formLogin ng-submit=login()> <input type=tex
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("(function () {\r\n    'use strict';\r\n\r\n    // Usage:\r\n    // Login view.\r\n\r\n    window.app\r\n        .component('login', {\r\n            template: __webpack_require__(/*! ./login.html */ \"./views/login/login.html\"),\r\n            controller: _\r\n        });\r\n\r\n    _.$inject = ['$scope', 'MainService'];\r\n    function _($scope, MainService) {\r\n        let $ctrl = this;\r\n        $ctrl.$onInit = () => { };\r\n\r\n        $scope.login = async () => {\r\n            $scope.res = await MainService.login({\r\n                username: $scope.data.username,\r\n                password: $scope.data.password\r\n            });\r\n            $scope.$apply();\r\n        };\r\n    }\r\n})();\n\n//# sourceURL=webpack:///./views/login/login.js?");
+
+/***/ }),
+
+/***/ "./views/user-container/user-container.html":
+/*!**************************************************!*\
+  !*** ./views/user-container/user-container.html ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"user container\";\n\n//# sourceURL=webpack:///./views/user-container/user-container.html?");
+
+/***/ }),
+
+/***/ "./views/user-container/user-container.js":
+/*!************************************************!*\
+  !*** ./views/user-container/user-container.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("(function () {\r\n    'use strict';\r\n\r\n    // Usage:\r\n    // User container.\r\n\r\n    window.app\r\n        .component('userContainer', {\r\n            template: __webpack_require__(/*! ./user-container.html */ \"./views/user-container/user-container.html\"),\r\n            controller: _\r\n        });\r\n\r\n    _.$inject = [];\r\n    function _() {\r\n        let $ctrl = this;\r\n        $ctrl.$onInit = () => { };\r\n    }\r\n})();\n\n//# sourceURL=webpack:///./views/user-container/user-container.js?");
 
 /***/ })
 
