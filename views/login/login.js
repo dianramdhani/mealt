@@ -6,13 +6,21 @@
 
     window.app
         .component('login', {
-            template: '<h1>hallo bos</h1>',
-            controller: ControllerController
+            template: require('./login.html'),
+            controller: _
         });
 
-    ControllerController.$inject = [];
-    function ControllerController() {
+    _.$inject = ['$scope', 'MainService'];
+    function _($scope, MainService) {
         let $ctrl = this;
         $ctrl.$onInit = () => { };
+
+        $scope.login = async () => {
+            $scope.res = await MainService.login({
+                username: $scope.data.username,
+                password: $scope.data.password
+            });
+            $scope.$apply();
+        };
     }
 })();

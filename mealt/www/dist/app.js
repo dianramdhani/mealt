@@ -93,7 +93,18 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// LIBS\r\n__webpack_require__(/*! ./node_modules/jquery/dist/jquery */ \"./node_modules/jquery/dist/jquery.js\");\r\n__webpack_require__(/*! ./node_modules/popper.js/dist/umd/popper */ \"./node_modules/popper.js/dist/umd/popper.js\");\r\n__webpack_require__(/*! ./node_modules/bootstrap/dist/js/bootstrap */ \"./node_modules/bootstrap/dist/js/bootstrap.js\");\r\n__webpack_require__(/*! ./node_modules/angular/angular */ \"./node_modules/angular/angular.js\");\r\n__webpack_require__(/*! ./node_modules/angular-ui-router/release/angular-ui-router */ \"./node_modules/angular-ui-router/release/angular-ui-router.js\");\r\n__webpack_require__(/*! ./node_modules/angular-cookies/angular-cookies */ \"./node_modules/angular-cookies/angular-cookies.js\");\r\n\r\n// ANGULARJS\r\nwindow.app = angular.module('Mealt', ['ui.router', 'ngCookies']);\r\n\r\n// ROUTES\r\n__webpack_require__(/*! ./routes/app.route */ \"./routes/app.route.js\");\r\n\r\n// VIEWS\r\n__webpack_require__(/*! ./views/login/login */ \"./views/login/login.js\");\r\n\r\n// RUN\r\n(function () {\r\n    'use strict';\r\n\r\n    window.app\r\n        .run(Run);\r\n\r\n    Run.$inject = ['$state'];\r\n    function Run($state) {\r\n        console.log('testing');\r\n        $state.go('login');\r\n    }\r\n})();\n\n//# sourceURL=webpack:///./app.js?");
+eval("// LIBS\r\n__webpack_require__(/*! ./node_modules/jquery/dist/jquery */ \"./node_modules/jquery/dist/jquery.js\");\r\n__webpack_require__(/*! ./node_modules/popper.js/dist/umd/popper */ \"./node_modules/popper.js/dist/umd/popper.js\");\r\n__webpack_require__(/*! ./node_modules/bootstrap/dist/js/bootstrap */ \"./node_modules/bootstrap/dist/js/bootstrap.js\");\r\n__webpack_require__(/*! ./node_modules/angular/angular */ \"./node_modules/angular/angular.js\");\r\n__webpack_require__(/*! ./node_modules/angular-ui-router/release/angular-ui-router */ \"./node_modules/angular-ui-router/release/angular-ui-router.js\");\r\n__webpack_require__(/*! ./node_modules/angular-cookies/angular-cookies */ \"./node_modules/angular-cookies/angular-cookies.js\");\r\n\r\n// ANGULARJS\r\nwindow.app = angular.module('Mealt', ['ui.router', 'ngCookies']);\r\n\r\n// CONFIG\r\n__webpack_require__(/*! ./config */ \"./config.js\");\r\n\r\n// ROUTES\r\n__webpack_require__(/*! ./routes/app.route */ \"./routes/app.route.js\");\r\n\r\n// SERVICES\r\n__webpack_require__(/*! ./services/main.service */ \"./services/main.service.js\");\r\n\r\n// VIEWS\r\n__webpack_require__(/*! ./views/login/login */ \"./views/login/login.js\");\r\n\r\n// RUN\r\n(function () {\r\n    'use strict';\r\n\r\n    window.app\r\n        .run(Run);\r\n\r\n    Run.$inject = ['$state'];\r\n    function Run($state) {\r\n        console.log('testing');\r\n        $state.go('login');\r\n    }\r\n})();\n\n//# sourceURL=webpack:///./app.js?");
+
+/***/ }),
+
+/***/ "./config.js":
+/*!*******************!*\
+  !*** ./config.js ***!
+  \*******************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("(function () {\r\n    'use strict';\r\n\r\n    window.app\r\n        .constant('CONFIG', {\r\n            API: 'http://ep.tritronik.com:8443'\r\n        });\r\n})();\n\n//# sourceURL=webpack:///./config.js?");
 
 /***/ }),
 
@@ -208,14 +219,36 @@ eval("(function () {\r\n    'use strict';\r\n\r\n    window.app\r\n        .conf
 
 /***/ }),
 
+/***/ "./services/main.service.js":
+/*!**********************************!*\
+  !*** ./services/main.service.js ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("(function () {\r\n    'use strict';\r\n\r\n    window.app\r\n        .service('MainService', MainService);\r\n\r\n    MainService.$inject = ['$http', 'CONFIG'];\r\n    function MainService($http, CONFIG) {\r\n        this.login = login;\r\n\r\n        const url = CONFIG.API;\r\n\r\n        /**\r\n         * Login service.\r\n         * @param {String} username - Username.\r\n         * @param {String} password - Username.\r\n         */\r\n        function login({ username, password }) {\r\n            return $http.post(`${url}/login`, { username, password });\r\n        }\r\n    }\r\n})();\n\n//# sourceURL=webpack:///./services/main.service.js?");
+
+/***/ }),
+
+/***/ "./views/login/login.html":
+/*!********************************!*\
+  !*** ./views/login/login.html ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"<form name=formLogin ng-submit=login()> <input type=text ng-model=data.username required> <br> <input type=password ng-model=data.password required> <br> <button type=submit>login</button> </form> {{res}}\";\n\n//# sourceURL=webpack:///./views/login/login.html?");
+
+/***/ }),
+
 /***/ "./views/login/login.js":
 /*!******************************!*\
   !*** ./views/login/login.js ***!
   \******************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-eval("(function () {\r\n    'use strict';\r\n\r\n    // Usage:\r\n    // Login view.\r\n\r\n    window.app\r\n        .component('login', {\r\n            template: '<h1>hallo bos</h1>',\r\n            controller: ControllerController\r\n        });\r\n\r\n    ControllerController.$inject = [];\r\n    function ControllerController() {\r\n        let $ctrl = this;\r\n        $ctrl.$onInit = () => { };\r\n    }\r\n})();\n\n//# sourceURL=webpack:///./views/login/login.js?");
+eval("(function () {\r\n    'use strict';\r\n\r\n    // Usage:\r\n    // Login view.\r\n\r\n    window.app\r\n        .component('login', {\r\n            template: __webpack_require__(/*! ./login.html */ \"./views/login/login.html\"),\r\n            controller: _\r\n        });\r\n\r\n    _.$inject = ['$scope', 'MainService'];\r\n    function _($scope, MainService) {\r\n        let $ctrl = this;\r\n        $ctrl.$onInit = () => { };\r\n\r\n        $scope.login = async () => {\r\n            $scope.res = await MainService.login({\r\n                username: $scope.data.username,\r\n                password: $scope.data.password\r\n            });\r\n            $scope.$apply();\r\n        };\r\n    }\r\n})();\n\n//# sourceURL=webpack:///./views/login/login.js?");
 
 /***/ })
 

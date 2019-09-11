@@ -9,8 +9,14 @@ require('./node_modules/angular-cookies/angular-cookies');
 // ANGULARJS
 window.app = angular.module('Mealt', ['ui.router', 'ngCookies']);
 
+// CONFIG
+require('./config');
+
 // ROUTES
 require('./routes/app.route');
+
+// SERVICES
+require('./services/main.service');
 
 // VIEWS
 require('./views/login/login');
