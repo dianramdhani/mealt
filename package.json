@@ -1,0 +1,30 @@
+{
+  "name": "mealt",
+  "version": "1.0.0",
+  "description": "Mobile Apps Tritronik Meal 2",
+  "main": "app.js",
+  "scripts": {
+    "build": "webpack -p --progress",
+    "build:dev": "webpack --mode=development -p --progress"
+  },
+  "author": "Dian Ramdhani Lubis",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "css-loader": "^3.2.0",
+    "file-loader": "^4.2.0",
+    "html-loader": "^0.5.5",
+    "style-loader": "^1.0.0",
+    "url-loader": "^2.1.0",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8"
+  },
+  "dependencies": {
+    "angular": "^1.7.8",
+    "angular-cookies": "^1.7.8",
+    "angular-ui-router": "^1.0.22",
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
+    "normalize.css": "^8.0.1",
+    "popper.js": "^1.15.0"
+  }
+}
