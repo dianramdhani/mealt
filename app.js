@@ -18,6 +18,7 @@ require('./routes/user.route');
 
 // SERVICES
 require('./services/main.service');
+require('./services/meal-plant-rest.service');
 
 // VIEWS
 require('./views/login/login');
@@ -41,7 +42,7 @@ require('./views/dashboard/dashboard');
         if (typeof $rootScope.global.user === 'undefined') {
             $state.go('login');
         } else {
-            // $http.defaults.headers.common = { token: $rootScope.global.user.token };
+            $http.defaults.headers.common = { token: $rootScope.global.user.token };
             /**
              * @todo
              * tidak selalu user

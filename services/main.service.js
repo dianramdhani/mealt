@@ -17,8 +17,8 @@
          * @param {String} password - Username.
          */
         async function login({ username, password }) {
-            $rootScope.global['user'] = await $http.post(`${url}/login`, { username, password });
-            // $http.defaults.headers.common = { token: $rootScope.global.user.token };
+            $rootScope.global['user'] = await $http.post(`${url}/login`, { username, password }).then(_=>_.data);
+            $http.defaults.headers.common = { token: $rootScope.global.user.token };
             let expires = new Date();
             expires.setDate(expires.getDate() + 7);
             $cookies.putObject('user', $rootScope.global.user, { expires });
@@ -27,7 +27,7 @@
 
         function logout() {
             $http.defaults.headers.common = {};
-            $rootScope.globals = {};
+            $rootScope.global = {};
             $cookies.remove('user');
             // $cookies.remove('menu');
         }
