@@ -13,7 +13,9 @@
     _.$inject = ['$scope', '$state', 'MainService'];
     function _($scope, $state, MainService) {
         let $ctrl = this;
-        $ctrl.$onInit = () => { };
+        $ctrl.$onInit = () => { 
+            $state.go('user.dashboard');
+        };
 
         $scope.logout = () => {
             MainService.logout();

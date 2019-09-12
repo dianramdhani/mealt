@@ -14,6 +14,7 @@ require('./config');
 
 // ROUTES
 require('./routes/app.route');
+require('./routes/user.route');
 
 // SERVICES
 require('./services/main.service');
@@ -21,6 +22,7 @@ require('./services/main.service');
 // VIEWS
 require('./views/login/login');
 require('./views/user-container/user-container');
+require('./views/dashboard/dashboard');
 
 // RUN
 (function () {

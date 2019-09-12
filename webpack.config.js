@@ -1,6 +1,5 @@
 const
     path = require('path'),
-    { CleanWebpackPlugin } = require('clean-webpack-plugin'),
     targetPath = 'mealt/www/dist',
     app = {
         entry: './app.js',
@@ -23,10 +22,7 @@ const
                     use: ['style-loader', 'css-loader']
                 }
             ]
-        },
-        plugins: [
-            new CleanWebpackPlugin({ cleanOnceBeforeBuildPatterns: [] })
-        ]
+        }
     },
     style = {
         entry: './style.js',

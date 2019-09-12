@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// LIBS\r\n__webpack_require__(/*! ./node_modules/jquery/dist/jquery */ \"./node_modules/jquery/dist/jquery.js\");\r\n__webpack_require__(/*! ./node_modules/popper.js/dist/umd/popper */ \"./node_modules/popper.js/dist/umd/popper.js\");\r\n__webpack_require__(/*! ./node_modules/bootstrap/dist/js/bootstrap */ \"./node_modules/bootstrap/dist/js/bootstrap.js\");\r\n__webpack_require__(/*! ./node_modules/angular/angular */ \"./node_modules/angular/angular.js\");\r\n__webpack_require__(/*! ./node_modules/angular-ui-router/release/angular-ui-router */ \"./node_modules/angular-ui-router/release/angular-ui-router.js\");\r\n__webpack_require__(/*! ./node_modules/angular-cookies/angular-cookies */ \"./node_modules/angular-cookies/angular-cookies.js\");\r\n\r\n// ANGULARJS\r\nwindow.app = angular.module('Mealt', ['ui.router', 'ngCookies']);\r\n\r\n// CONFIG\r\n__webpack_require__(/*! ./config */ \"./config.js\");\r\n\r\n// ROUTES\r\n__webpack_require__(/*! ./routes/app.route */ \"./routes/app.route.js\");\r\n\r\n// SERVICES\r\n__webpack_require__(/*! ./services/main.service */ \"./services/main.service.js\");\r\n\r\n// VIEWS\r\n__webpack_require__(/*! ./views/login/login */ \"./views/login/login.js\");\r\n__webpack_require__(/*! ./views/user-container/user-container */ \"./views/user-container/user-container.js\");\r\n\r\n// RUN\r\n(function () {\r\n    'use strict';\r\n\r\n    window.app\r\n        .run(Run);\r\n\r\n    Run.$inject = ['$state', '$rootScope', '$cookies', '$http'];\r\n    function Run($state, $rootScope, $cookies, $http) {\r\n        $rootScope['global'] = {\r\n            user: angular.fromJson($cookies.get('user')),\r\n            menu: angular.fromJson($cookies.get('menu'))\r\n        } || {};\r\n\r\n        if (typeof $rootScope.global.user === 'undefined') {\r\n            $state.go('login');\r\n        } else {\r\n            // $http.defaults.headers.common = { token: $rootScope.global.user.token };\r\n            /**\r\n             * @todo\r\n             * tidak selalu user\r\n             * compare with role\r\n             */\r\n            $state.go('user');\r\n        }\r\n    }\r\n})();\n\n//# sourceURL=webpack:///./app.js?");
+eval("// LIBS\r\n__webpack_require__(/*! ./node_modules/jquery/dist/jquery */ \"./node_modules/jquery/dist/jquery.js\");\r\n__webpack_require__(/*! ./node_modules/popper.js/dist/umd/popper */ \"./node_modules/popper.js/dist/umd/popper.js\");\r\n__webpack_require__(/*! ./node_modules/bootstrap/dist/js/bootstrap */ \"./node_modules/bootstrap/dist/js/bootstrap.js\");\r\n__webpack_require__(/*! ./node_modules/angular/angular */ \"./node_modules/angular/angular.js\");\r\n__webpack_require__(/*! ./node_modules/angular-ui-router/release/angular-ui-router */ \"./node_modules/angular-ui-router/release/angular-ui-router.js\");\r\n__webpack_require__(/*! ./node_modules/angular-cookies/angular-cookies */ \"./node_modules/angular-cookies/angular-cookies.js\");\r\n\r\n// ANGULARJS\r\nwindow.app = angular.module('Mealt', ['ui.router', 'ngCookies']);\r\n\r\n// CONFIG\r\n__webpack_require__(/*! ./config */ \"./config.js\");\r\n\r\n// ROUTES\r\n__webpack_require__(/*! ./routes/app.route */ \"./routes/app.route.js\");\r\n__webpack_require__(/*! ./routes/user.route */ \"./routes/user.route.js\");\r\n\r\n// SERVICES\r\n__webpack_require__(/*! ./services/main.service */ \"./services/main.service.js\");\r\n\r\n// VIEWS\r\n__webpack_require__(/*! ./views/login/login */ \"./views/login/login.js\");\r\n__webpack_require__(/*! ./views/user-container/user-container */ \"./views/user-container/user-container.js\");\r\n__webpack_require__(/*! ./views/dashboard/dashboard */ \"./views/dashboard/dashboard.js\");\r\n\r\n// RUN\r\n(function () {\r\n    'use strict';\r\n\r\n    window.app\r\n        .run(Run);\r\n\r\n    Run.$inject = ['$state', '$rootScope', '$cookies', '$http'];\r\n    function Run($state, $rootScope, $cookies, $http) {\r\n        $rootScope['global'] = {\r\n            user: angular.fromJson($cookies.get('user')),\r\n            menu: angular.fromJson($cookies.get('menu'))\r\n        } || {};\r\n\r\n        if (typeof $rootScope.global.user === 'undefined') {\r\n            $state.go('login');\r\n        } else {\r\n            // $http.defaults.headers.common = { token: $rootScope.global.user.token };\r\n            /**\r\n             * @todo\r\n             * tidak selalu user\r\n             * compare with role\r\n             */\r\n            $state.go('user');\r\n        }\r\n    }\r\n})();\n\n//# sourceURL=webpack:///./app.js?");
 
 /***/ }),
 
@@ -230,6 +230,17 @@ eval("(function () {\r\n    'use strict';\r\n\r\n    window.app\r\n        .conf
 
 /***/ }),
 
+/***/ "./routes/user.route.js":
+/*!******************************!*\
+  !*** ./routes/user.route.js ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("(function () {\r\n    'use strict';\r\n\r\n    window.app\r\n        .config(RouteUser);\r\n\r\n    RouteUser.$inject = ['$stateProvider'];\r\n\r\n    function RouteUser($stateProvider) {\r\n        [\r\n            { name: 'user.dashboard', url: '/dashboard', component: 'dashboard' },\r\n        ]\r\n            .forEach(state => $stateProvider.state(state));\r\n    }\r\n})();\n\n//# sourceURL=webpack:///./routes/user.route.js?");
+
+/***/ }),
+
 /***/ "./services/main.service.js":
 /*!**********************************!*\
   !*** ./services/main.service.js ***!
@@ -238,6 +249,28 @@ eval("(function () {\r\n    'use strict';\r\n\r\n    window.app\r\n        .conf
 /***/ (function(module, exports) {
 
 eval("(function () {\r\n    'use strict';\r\n\r\n    window.app\r\n        .service('MainService', MainService);\r\n\r\n    MainService.$inject = ['$http', '$rootScope', '$cookies', 'CONFIG'];\r\n    function MainService($http, $rootScope, $cookies, CONFIG) {\r\n        this.login = login;\r\n        this.logout = logout;\r\n\r\n        const url = CONFIG.API;\r\n\r\n        /**\r\n         * Login service.\r\n         * @param {String} username - Username.\r\n         * @param {String} password - Username.\r\n         */\r\n        async function login({ username, password }) {\r\n            $rootScope.global['user'] = await $http.post(`${url}/login`, { username, password });\r\n            // $http.defaults.headers.common = { token: $rootScope.global.user.token };\r\n            let expires = new Date();\r\n            expires.setDate(expires.getDate() + 7);\r\n            $cookies.putObject('user', $rootScope.global.user, { expires });\r\n            return $rootScope.global.user;\r\n        }\r\n\r\n        function logout() {\r\n            $http.defaults.headers.common = {};\r\n            $rootScope.globals = {};\r\n            $cookies.remove('user');\r\n            // $cookies.remove('menu');\r\n        }\r\n    }\r\n})();\n\n//# sourceURL=webpack:///./services/main.service.js?");
+
+/***/ }),
+
+/***/ "./views/dashboard/dashboard.html":
+/*!****************************************!*\
+  !*** ./views/dashboard/dashboard.html ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"dashboard terbuka\";\n\n//# sourceURL=webpack:///./views/dashboard/dashboard.html?");
+
+/***/ }),
+
+/***/ "./views/dashboard/dashboard.js":
+/*!**************************************!*\
+  !*** ./views/dashboard/dashboard.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("(function () {\r\n    'use strict';\r\n\r\n    // Usage:\r\n    // Dashboard view.\r\n\r\n    window.app\r\n        .component('dashboard', {\r\n            template: __webpack_require__(/*! ./dashboard.html */ \"./views/dashboard/dashboard.html\"),\r\n            controller: _\r\n        });\r\n\r\n    _.$inject = [];\r\n    function _() {\r\n        let $ctrl = this;\r\n        $ctrl.$onInit = () => { };\r\n    }\r\n})();\n\n//# sourceURL=webpack:///./views/dashboard/dashboard.js?");
 
 /***/ }),
 
@@ -270,7 +303,7 @@ eval("(function () {\r\n    'use strict';\r\n\r\n    // Usage:\r\n    // Login v
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = \"<button ng-click=logout()>logout</button>\";\n\n//# sourceURL=webpack:///./views/user-container/user-container.html?");
+eval("module.exports = \"<button ng-click=logout()>logout</button> <div ui-view></div>\";\n\n//# sourceURL=webpack:///./views/user-container/user-container.html?");
 
 /***/ }),
 
@@ -281,7 +314,7 @@ eval("module.exports = \"<button ng-click=logout()>logout</button>\";\n\n//# sou
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("(function () {\r\n    'use strict';\r\n\r\n    // Usage:\r\n    // User container.\r\n\r\n    window.app\r\n        .component('userContainer', {\r\n            template: __webpack_require__(/*! ./user-container.html */ \"./views/user-container/user-container.html\"),\r\n            controller: _\r\n        });\r\n\r\n    _.$inject = ['$scope', '$state', 'MainService'];\r\n    function _($scope, $state, MainService) {\r\n        let $ctrl = this;\r\n        $ctrl.$onInit = () => { };\r\n\r\n        $scope.logout = () => {\r\n            MainService.logout();\r\n            $state.go('login');\r\n        };\r\n    }\r\n})();\n\n//# sourceURL=webpack:///./views/user-container/user-container.js?");
+eval("(function () {\r\n    'use strict';\r\n\r\n    // Usage:\r\n    // User container.\r\n\r\n    window.app\r\n        .component('userContainer', {\r\n            template: __webpack_require__(/*! ./user-container.html */ \"./views/user-container/user-container.html\"),\r\n            controller: _\r\n        });\r\n\r\n    _.$inject = ['$scope', '$state', 'MainService'];\r\n    function _($scope, $state, MainService) {\r\n        let $ctrl = this;\r\n        $ctrl.$onInit = () => { \r\n            $state.go('user.dashboard');\r\n        };\r\n\r\n        $scope.logout = () => {\r\n            MainService.logout();\r\n            $state.go('login');\r\n        };\r\n    }\r\n})();\n\n//# sourceURL=webpack:///./views/user-container/user-container.js?");
 
 /***/ })
 
