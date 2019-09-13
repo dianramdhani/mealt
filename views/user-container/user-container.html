@@ -4,7 +4,8 @@
         <div class="tr-header-menu">
             <i data-feather="monitor" ng-class="{active: menu === 'dashboard'}" ng-click="menu='dashboard'"
                 ui-sref="user.dashboard"></i>
-            <i data-feather="book-open" ng-class="{active: menu === 'meal'}" ng-click="menu='meal'"></i>
+            <i data-feather="book-open" ng-class="{active: menu === 'meal'}" ng-click="menu='meal'"
+                ui-sref="user.meal"></i>
             <i data-feather="log-out" ng-class="{active: menu === 'logout'}" ng-click="menu='logout'; logout();"></i>
         </div>
     </div>

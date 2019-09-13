@@ -24,6 +24,7 @@ require('./services/meal-plant-rest.service');
 require('./views/login/login');
 require('./views/user-container/user-container');
 require('./views/dashboard/dashboard');
+require('./views/meal/meal');
 
 // RUN
 (function () {
