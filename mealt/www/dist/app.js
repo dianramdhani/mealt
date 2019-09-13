@@ -327,7 +327,7 @@ eval("(function () {\r\n    'use strict';\r\n\r\n    window.app\r\n        .serv
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = \"{{data}}\";\n\n//# sourceURL=webpack:///./views/dashboard/dashboard.html?");
+eval("module.exports = \"<div class=pt-3> <div class=\\\"container d-flex justify-content-between\\\"> <h5>Monday</h5> <span>date</span> </div> <div class=container> <div class=\\\"card mb-2\\\"> <div class=card-body> <h6>Breakfast</h6> hallo indonesia </div> </div> <div class=\\\"card mb-2\\\"> <div class=card-body> <h6>Lunch</h6> hallo indonesia </div> </div> <div class=card> <div class=card-body> <h6>Snack</h6> hallo indonesia </div> </div> </div> <hr> <div class=\\\"container d-flex justify-content-between\\\"> <h5>Tuesday</h5> <span>date</span> </div> <div class=container> <div class=\\\"card mb-2\\\"> <div class=card-body> <h6>Breakfast</h6> hallo indonesia </div> </div> <div class=\\\"card mb-2\\\"> <div class=card-body> <h6>Lunch</h6> hallo indonesia </div> </div> <div class=card> <div class=card-body> <h6>Snack</h6> hallo indonesia </div> </div> </div> <hr> </div>\";\n\n//# sourceURL=webpack:///./views/dashboard/dashboard.html?");
 
 /***/ }),
 
@@ -382,7 +382,7 @@ eval("var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = \"<div class=tr-container> <div class=\\\"container d-flex justify-content-between align-items-center tr-header\\\"> <img src=\" + __webpack_require__(/*! ../../img/logo-vertical.png */ \"./img/logo-vertical.png\") + \"> <div class=tr-header-menu> <i data-feather=monitor ng-class=\\\"{active: menu === 'dashboard'}\\\" ng-click=\\\"menu='dashboard'\\\"></i> <i data-feather=book-open ng-class=\\\"{active: menu === 'meal'}\\\" ng-click=\\\"menu='meal'\\\"></i> <i data-feather=log-out ng-class=\\\"{active: menu === 'logout'}\\\" ng-click=\\\"menu='logout'; logout();\\\"></i> </div> </div> <div class=\\\"container tr-content\\\" ui-view></div> </div>\";\n\n//# sourceURL=webpack:///./views/user-container/user-container.html?");
+eval("module.exports = \"<div class=tr-container> <div class=\\\"container d-flex justify-content-between align-items-center tr-header\\\"> <img src=\" + __webpack_require__(/*! ../../img/logo-vertical.png */ \"./img/logo-vertical.png\") + \"> <div class=tr-header-menu> <i data-feather=monitor ng-class=\\\"{active: menu === 'dashboard'}\\\" ng-click=\\\"menu='dashboard'\\\" ui-sref=user.dashboard></i> <i data-feather=book-open ng-class=\\\"{active: menu === 'meal'}\\\" ng-click=\\\"menu='meal'\\\"></i> <i data-feather=log-out ng-class=\\\"{active: menu === 'logout'}\\\" ng-click=\\\"menu='logout'; logout();\\\"></i> </div> </div> <div class=tr-content ui-view></div> </div>\";\n\n//# sourceURL=webpack:///./views/user-container/user-container.html?");
 
 /***/ }),
 
