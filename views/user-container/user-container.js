@@ -1,3 +1,5 @@
+require('./user-container.css');
+
 (function () {
     'use strict';
 
@@ -13,7 +15,7 @@
     _.$inject = ['$scope', '$state', 'MainService'];
     function _($scope, $state, MainService) {
         let $ctrl = this;
-        $ctrl.$onInit = () => { 
+        $ctrl.$onInit = () => {
             $state.go('user.dashboard');
         };
 

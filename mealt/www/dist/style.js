@@ -86,6 +86,17 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./css/tritronik.css":
+/*!***************************!*\
+  !*** ./css/tritronik.css ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var content = __webpack_require__(/*! !../node_modules/css-loader/dist/cjs.js!./tritronik.css */ \"./node_modules/css-loader/dist/cjs.js!./css/tritronik.css\");\n\nif (typeof content === 'string') {\n  content = [[module.i, content, '']];\n}\n\nvar options = {}\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = __webpack_require__(/*! ../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\")(content, options);\n\nif (content.locals) {\n  module.exports = content.locals;\n}\n\n\n//# sourceURL=webpack:///./css/tritronik.css?");
+
+/***/ }),
+
 /***/ "./node_modules/bootstrap/dist/css/bootstrap.min.css":
 /*!***********************************************************!*\
   !*** ./node_modules/bootstrap/dist/css/bootstrap.min.css ***!
@@ -94,6 +105,17 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("var content = __webpack_require__(/*! !../../../css-loader/dist/cjs.js!./bootstrap.min.css */ \"./node_modules/css-loader/dist/cjs.js!./node_modules/bootstrap/dist/css/bootstrap.min.css\");\n\nif (typeof content === 'string') {\n  content = [[module.i, content, '']];\n}\n\nvar options = {}\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = __webpack_require__(/*! ../../../style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\")(content, options);\n\nif (content.locals) {\n  module.exports = content.locals;\n}\n\n\n//# sourceURL=webpack:///./node_modules/bootstrap/dist/css/bootstrap.min.css?");
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./css/tritronik.css":
+/*!*****************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./css/tritronik.css ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"html,\\r\\nbody {\\r\\n    overflow: hidden;\\r\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./css/tritronik.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -161,7 +183,7 @@ eval("\n\nvar stylesInDom = {};\n\nvar isOldIE = function isOldIE() {\n  var mem
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("__webpack_require__(/*! ./node_modules/normalize.css/normalize.css */ \"./node_modules/normalize.css/normalize.css\");\r\n__webpack_require__(/*! ./node_modules/bootstrap/dist/css/bootstrap.min.css */ \"./node_modules/bootstrap/dist/css/bootstrap.min.css\");\n\n//# sourceURL=webpack:///./style.js?");
+eval("__webpack_require__(/*! ./node_modules/normalize.css/normalize.css */ \"./node_modules/normalize.css/normalize.css\");\r\n__webpack_require__(/*! ./node_modules/bootstrap/dist/css/bootstrap.min.css */ \"./node_modules/bootstrap/dist/css/bootstrap.min.css\");\r\n__webpack_require__(/*! ./css/tritronik.css */ \"./css/tritronik.css\");\n\n//# sourceURL=webpack:///./style.js?");
 
 /***/ })
 
