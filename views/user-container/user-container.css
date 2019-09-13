@@ -12,8 +12,23 @@ user-container .tr-header img {
     height: 60%;
 }
 
+user-container .tr-header-menu {
+    display: flex;
+    justify-content: center;
+}
+
+user-container .tr-header-menu svg {
+    margin-left: 1rem;
+    color: #6c757d;
+}
+
+user-container .tr-header-menu .active {
+    color: black;
+}
+
 user-container .tr-content {
     width: 100%;
     height: calc(100% - 60px);
     overflow-y: auto;
+    overflow-wrap: break-word;
 }

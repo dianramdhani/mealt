@@ -115,7 +115,7 @@ eval("var content = __webpack_require__(/*! !../../../css-loader/dist/cjs.js!./b
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"html,\\r\\nbody {\\r\\n    overflow: hidden;\\r\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./css/tritronik.css?./node_modules/css-loader/dist/cjs.js");
+eval("exports = module.exports = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"html,\\r\\nbody {\\r\\n    overflow: hidden;\\r\\n}\\r\\n\\r\\n.btn-circle {\\r\\n    width: 45px;\\r\\n    height: 45px;\\r\\n    line-height: 45px;\\r\\n    text-align: center;\\r\\n    padding: 0;\\r\\n    border-radius: 50%;\\r\\n    display: flex;\\r\\n    justify-content: center;\\r\\n    align-items: center;\\r\\n}\\r\\n\\r\\n.btn-circle i {\\r\\n    position: relative;\\r\\n    top: -1px;\\r\\n}\\r\\n\\r\\n.btn-circle-sm {\\r\\n    width: 35px;\\r\\n    height: 35px;\\r\\n    line-height: 35px;\\r\\n    font-size: 0.9rem;\\r\\n}\\r\\n\\r\\n.btn-circle-lg {\\r\\n    width: 55px;\\r\\n    height: 55px;\\r\\n    line-height: 55px;\\r\\n    font-size: 1.1rem;\\r\\n}\\r\\n\\r\\n.btn-circle-xl {\\r\\n    width: 70px;\\r\\n    height: 70px;\\r\\n    line-height: 70px;\\r\\n    font-size: 1.3rem;\\r\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./css/tritronik.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 

@@ -1,4 +1,5 @@
 require('./user-container.css');
+const feather = require('feather-icons');
 
 (function () {
     'use strict';
@@ -16,7 +17,9 @@ require('./user-container.css');
     function _($scope, $state, MainService) {
         let $ctrl = this;
         $ctrl.$onInit = () => {
+            $scope.menu = 'dashboard';
             $state.go('user.dashboard');
+            feather.replace();
         };
 
         $scope.logout = () => {

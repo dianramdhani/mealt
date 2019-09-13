@@ -1,45 +1,11 @@
 <div class="tr-container">
     <div class="container d-flex justify-content-between align-items-center tr-header">
         <img src="../../img/logo-vertical.png">
-        <div>
-            <button>logout</button>
+        <div class="tr-header-menu">
+            <i data-feather="monitor" ng-class="{active: menu === 'dashboard'}" ng-click="menu='dashboard'"></i>
+            <i data-feather="book-open" ng-class="{active: menu === 'meal'}" ng-click="menu='meal'"></i>
+            <i data-feather="log-out" ng-class="{active: menu === 'logout'}" ng-click="menu='logout'; logout();"></i>
         </div>
     </div>
-    <div class="tr-content">
-        Tes psikologi atau psikotes adalah bidang yang ditandai dengan penggunaan sampel perilaku untuk menilai
-        konstruksi psikologis, seperti fungsi kognitif dan emosional, tentang individu tertentu. Istilah teknis
-        untuk
-        ilmu di balik tes psikologis adalah Psikometrik. Dengan sampel perilaku, berarti pengamatan dari tugas
-        melakukan
-        individu yang biasanya telah ditentukan sebelumnya, yang sering berarti nilai pada ujian. Respon ini sering
-        dikompilasi ke dalam tabel statistik yang memungkinkan evaluator untuk membandingkan perilaku individu yang
-        diuji terhadap tanggapan kelompok norma.
-        <br>
-        Tes psikologi atau psikotes adalah bidang yang ditandai dengan penggunaan sampel perilaku untuk menilai
-        konstruksi psikologis, seperti fungsi kognitif dan emosional, tentang individu tertentu. Istilah teknis
-        untuk
-        ilmu di balik tes psikologis adalah Psikometrik. Dengan sampel perilaku, berarti pengamatan dari tugas
-        melakukan
-        individu yang biasanya telah ditentukan sebelumnya, yang sering berarti nilai pada ujian. Respon ini sering
-        dikompilasi ke dalam tabel statistik yang memungkinkan evaluator untuk membandingkan perilaku individu yang
-        diuji terhadap tanggapan kelompok norma.
-        <br>
-        Tes psikologi atau psikotes adalah bidang yang ditandai dengan penggunaan sampel perilaku untuk menilai
-        konstruksi psikologis, seperti fungsi kognitif dan emosional, tentang individu tertentu. Istilah teknis
-        untuk
-        ilmu di balik tes psikologis adalah Psikometrik. Dengan sampel perilaku, berarti pengamatan dari tugas
-        melakukan
-        individu yang biasanya telah ditentukan sebelumnya, yang sering berarti nilai pada ujian. Respon ini sering
-        dikompilasi ke dalam tabel statistik yang memungkinkan evaluator untuk membandingkan perilaku individu yang
-        diuji terhadap tanggapan kelompok norma.
-        <br>
-        Tes psikologi atau psikotes adalah bidang yang ditandai dengan penggunaan sampel perilaku untuk menilai
-        konstruksi psikologis, seperti fungsi kognitif dan emosional, tentang individu tertentu. Istilah teknis
-        untuk
-        ilmu di balik tes psikologis adalah Psikometrik. Dengan sampel perilaku, berarti pengamatan dari tugas
-        melakukan
-        individu yang biasanya telah ditentukan sebelumnya, yang sering berarti nilai pada ujian. Respon ini sering
-        dikompilasi ke dalam tabel statistik yang memungkinkan evaluator untuk membandingkan perilaku individu yang
-        diuji terhadap tanggapan kelompok norma.
-    </div>
+    <div class="container tr-content" ui-view></div>
 </div>
