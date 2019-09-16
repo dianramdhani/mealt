@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// LIBS\r\n__webpack_require__(/*! ./node_modules/jquery/dist/jquery */ \"./node_modules/jquery/dist/jquery.js\");\r\n__webpack_require__(/*! ./node_modules/popper.js/dist/umd/popper */ \"./node_modules/popper.js/dist/umd/popper.js\");\r\n__webpack_require__(/*! ./node_modules/bootstrap/dist/js/bootstrap */ \"./node_modules/bootstrap/dist/js/bootstrap.js\");\r\n__webpack_require__(/*! ./node_modules/angular/angular */ \"./node_modules/angular/angular.js\");\r\n__webpack_require__(/*! ./node_modules/angular-ui-router/release/angular-ui-router */ \"./node_modules/angular-ui-router/release/angular-ui-router.js\");\r\n__webpack_require__(/*! ./node_modules/angular-cookies/angular-cookies */ \"./node_modules/angular-cookies/angular-cookies.js\");\r\n\r\n// ANGULARJS\r\nwindow.app = angular.module('Mealt', ['ui.router', 'ngCookies']);\r\n\r\n// CONFIG\r\n__webpack_require__(/*! ./config */ \"./config.js\");\r\n\r\n// ROUTES\r\n__webpack_require__(/*! ./routes/app.route */ \"./routes/app.route.js\");\r\n__webpack_require__(/*! ./routes/user.route */ \"./routes/user.route.js\");\r\n\r\n// SERVICES\r\n__webpack_require__(/*! ./services/main.service */ \"./services/main.service.js\");\r\n__webpack_require__(/*! ./services/meal-plant-rest.service */ \"./services/meal-plant-rest.service.js\");\r\n\r\n// VIEWS\r\n__webpack_require__(/*! ./views/login/login */ \"./views/login/login.js\");\r\n__webpack_require__(/*! ./views/user-container/user-container */ \"./views/user-container/user-container.js\");\r\n__webpack_require__(/*! ./views/dashboard/dashboard */ \"./views/dashboard/dashboard.js\");\r\n__webpack_require__(/*! ./views/meal/meal */ \"./views/meal/meal.js\");\r\n\r\n// RUN\r\n(function () {\r\n    'use strict';\r\n\r\n    window.app\r\n        .run(Run);\r\n\r\n    Run.$inject = ['$state', '$rootScope', '$cookies', '$http'];\r\n    function Run($state, $rootScope, $cookies, $http) {\r\n        $rootScope['global'] = {\r\n            user: angular.fromJson($cookies.get('user')),\r\n            menu: angular.fromJson($cookies.get('menu'))\r\n        } || {};\r\n\r\n        if (typeof $rootScope.global.user === 'undefined') {\r\n            $state.go('login');\r\n        } else {\r\n            $http.defaults.headers.common = { token: $rootScope.global.user.token };\r\n            /**\r\n             * @todo\r\n             * tidak selalu user\r\n             * compare with role\r\n             */\r\n            $state.go('user');\r\n        }\r\n    }\r\n})();\n\n//# sourceURL=webpack:///./app.js?");
+eval("// LIBS\r\n__webpack_require__(/*! ./node_modules/jquery/dist/jquery */ \"./node_modules/jquery/dist/jquery.js\");\r\n__webpack_require__(/*! ./node_modules/popper.js/dist/umd/popper */ \"./node_modules/popper.js/dist/umd/popper.js\");\r\n__webpack_require__(/*! ./node_modules/bootstrap/dist/js/bootstrap */ \"./node_modules/bootstrap/dist/js/bootstrap.js\");\r\n__webpack_require__(/*! ./node_modules/angular/angular */ \"./node_modules/angular/angular.js\");\r\n__webpack_require__(/*! ./node_modules/angular-ui-router/release/angular-ui-router */ \"./node_modules/angular-ui-router/release/angular-ui-router.js\");\r\n__webpack_require__(/*! ./node_modules/angular-cookies/angular-cookies */ \"./node_modules/angular-cookies/angular-cookies.js\");\r\n\r\n// ANGULARJS\r\nwindow.app = angular.module('Mealt', ['ui.router', 'ngCookies']);\r\n\r\n// CONFIG\r\n__webpack_require__(/*! ./config */ \"./config.js\");\r\n\r\n// ROUTES\r\n__webpack_require__(/*! ./routes/app.route */ \"./routes/app.route.js\");\r\n__webpack_require__(/*! ./routes/user.route */ \"./routes/user.route.js\");\r\n\r\n// SERVICES\r\n__webpack_require__(/*! ./services/main.service */ \"./services/main.service.js\");\r\n__webpack_require__(/*! ./services/meal-plant-rest.service */ \"./services/meal-plant-rest.service.js\");\r\n\r\n// DIRECTIVES\r\n__webpack_require__(/*! ./directives/tr-repeat-end.directive */ \"./directives/tr-repeat-end.directive.js\");\r\n\r\n// VIEWS\r\n__webpack_require__(/*! ./views/login/login */ \"./views/login/login.js\");\r\n__webpack_require__(/*! ./views/user-container/user-container */ \"./views/user-container/user-container.js\");\r\n__webpack_require__(/*! ./views/dashboard/dashboard */ \"./views/dashboard/dashboard.js\");\r\n__webpack_require__(/*! ./views/meal/meal */ \"./views/meal/meal.js\");\r\n\r\n// RUN\r\n(function () {\r\n    'use strict';\r\n\r\n    window.app\r\n        .run(Run);\r\n\r\n    Run.$inject = ['$state', '$rootScope', '$cookies', '$http'];\r\n    function Run($state, $rootScope, $cookies, $http) {\r\n        $rootScope['global'] = {\r\n            user: angular.fromJson($cookies.get('user')),\r\n            menu: angular.fromJson($cookies.get('menu'))\r\n        } || {};\r\n\r\n        if (typeof $rootScope.global.user === 'undefined') {\r\n            $state.go('login');\r\n        } else {\r\n            $http.defaults.headers.common = { token: $rootScope.global.user.token };\r\n            /**\r\n             * @todo\r\n             * tidak selalu user\r\n             * compare with role\r\n             */\r\n            $state.go('user');\r\n        }\r\n    }\r\n})();\n\n//# sourceURL=webpack:///./app.js?");
 
 /***/ }),
 
@@ -105,6 +105,17 @@ eval("// LIBS\r\n__webpack_require__(/*! ./node_modules/jquery/dist/jquery */ \"
 /***/ (function(module, exports) {
 
 eval("(function () {\r\n    'use strict';\r\n\r\n    window.app\r\n        .constant('CONFIG', {\r\n            API: 'http://ep.tritronik.com:8443'\r\n        });\r\n})();\n\n//# sourceURL=webpack:///./config.js?");
+
+/***/ }),
+
+/***/ "./directives/tr-repeat-end.directive.js":
+/*!***********************************************!*\
+  !*** ./directives/tr-repeat-end.directive.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("(function () {\r\n    'use strict';\r\n\r\n    window.app\r\n        .directive('trRepeatEnd', trRepeatEnd);\r\n\r\n    trRepeatEnd.$inject = [];\r\n    function trRepeatEnd() {\r\n        // Usage:\r\n        // ngRepeat callback.\r\n        var directive = {\r\n            link: link,\r\n            restrict: 'A',\r\n        };\r\n        return directive;\r\n\r\n        function link(scope, element, attrs) {\r\n            if (scope.$last) {\r\n                scope.$eval(attrs.repeatEnd);\r\n            }\r\n        }\r\n    }\r\n})();\n\n//# sourceURL=webpack:///./directives/tr-repeat-end.directive.js?");
 
 /***/ }),
 
@@ -185,6 +196,17 @@ eval("/*!\n  * Bootstrap v4.3.1 (https://getbootstrap.com/)\n  * Copyright 2011-
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./views/dashboard/dashboard.css":
+/*!*****************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./views/dashboard/dashboard.css ***!
+  \*****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"dashboard .tr-status {\\r\\n    zoom: 0.7;\\r\\n}\\r\\n\\r\\ndashboard .tr-label {\\r\\n    width: 50%;\\r\\n    white-space: nowrap;\\r\\n    overflow: hidden;\\r\\n    text-overflow: ellipsis;\\r\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./views/dashboard/dashboard.css?./node_modules/css-loader/dist/cjs.js");
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./views/user-container/user-container.css":
 /*!***************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./views/user-container/user-container.css ***!
@@ -192,7 +214,7 @@ eval("/*!\n  * Bootstrap v4.3.1 (https://getbootstrap.com/)\n  * Copyright 2011-
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"user-container .tr-container {\\r\\n    width: 100%;\\r\\n    height: 100vh;\\r\\n}\\r\\n\\r\\nuser-container .tr-header {\\r\\n    height: 60px;\\r\\n    border-bottom: 1px solid rgba(72, 94, 144, 0.16);\\r\\n}\\r\\n\\r\\nuser-container .tr-header img {\\r\\n    height: 60%;\\r\\n}\\r\\n\\r\\nuser-container .tr-header-menu {\\r\\n    display: flex;\\r\\n    justify-content: center;\\r\\n}\\r\\n\\r\\nuser-container .tr-header-menu svg {\\r\\n    margin-left: 1rem;\\r\\n    color: #6c757d;\\r\\n}\\r\\n\\r\\nuser-container .tr-header-menu .active {\\r\\n    color: black;\\r\\n}\\r\\n\\r\\nuser-container .tr-content {\\r\\n    width: 100%;\\r\\n    height: calc(100% - 60px);\\r\\n    overflow-y: auto;\\r\\n    overflow-wrap: break-word;\\r\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./views/user-container/user-container.css?./node_modules/css-loader/dist/cjs.js");
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"user-container .tr-container {\\r\\n    width: 100%;\\r\\n    height: 100vh;\\r\\n}\\r\\n\\r\\nuser-container .tr-header {\\r\\n    height: 60px;\\r\\n    border-bottom: 1px solid rgba(72, 94, 144, 0.16);\\r\\n}\\r\\n\\r\\nuser-container .tr-header img {\\r\\n    height: 60%;\\r\\n}\\r\\n\\r\\nuser-container .tr-header-menu {\\r\\n    display: flex;\\r\\n    justify-content: center;\\r\\n}\\r\\n\\r\\nuser-container .tr-header-menu svg {\\r\\n    margin-left: 1rem;\\r\\n    color: #6c757d;\\r\\n}\\r\\n\\r\\nuser-container .tr-header-menu .active {\\r\\n    color: #e62129;\\r\\n}\\r\\n\\r\\nuser-container .tr-content {\\r\\n    width: 100%;\\r\\n    height: calc(100% - 60px);\\r\\n    overflow-y: auto;\\r\\n    overflow-wrap: break-word;\\r\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./views/user-container/user-container.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -320,6 +342,17 @@ eval("(function () {\r\n    'use strict';\r\n\r\n    window.app\r\n        .serv
 
 /***/ }),
 
+/***/ "./views/dashboard/dashboard.css":
+/*!***************************************!*\
+  !*** ./views/dashboard/dashboard.css ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!./dashboard.css */ \"./node_modules/css-loader/dist/cjs.js!./views/dashboard/dashboard.css\");\n\nif (typeof content === 'string') {\n  content = [[module.i, content, '']];\n}\n\nvar options = {}\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = __webpack_require__(/*! ../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\")(content, options);\n\nif (content.locals) {\n  module.exports = content.locals;\n}\n\n\n//# sourceURL=webpack:///./views/dashboard/dashboard.css?");
+
+/***/ }),
+
 /***/ "./views/dashboard/dashboard.html":
 /*!****************************************!*\
   !*** ./views/dashboard/dashboard.html ***!
@@ -327,7 +360,7 @@ eval("(function () {\r\n    'use strict';\r\n\r\n    window.app\r\n        .serv
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = \"<h4 class=container>Period 26-30 August 2019</h4> <div class=\\\"container d-flex justify-content-between text-secondary\\\"> <h5>Monday</h5> <small>26 August 2019</small> </div> <div class=container> <div class=\\\"card mb-2\\\"> <div class=card-body> <h6>Breakfast</h6> hallo indonesia </div> </div> <div class=\\\"card mb-2\\\"> <div class=card-body> <h6>Lunch</h6> hallo indonesia </div> </div> <div class=card> <div class=card-body> <h6>Snack</h6> hallo indonesia </div> </div> </div> <hr> <div class=\\\"container d-flex justify-content-between text-secondary\\\"> <h5>Tuesday</h5> <small>27 August 2019</small> </div> <div class=container> <div class=\\\"card mb-2\\\"> <div class=card-body> <h6>Breakfast</h6> hallo indonesia </div> </div> <div class=\\\"card mb-2\\\"> <div class=card-body> <h6>Lunch</h6> hallo indonesia </div> </div> <div class=card> <div class=card-body> <h6>Snack</h6> hallo indonesia </div> </div> </div> <hr>\";\n\n//# sourceURL=webpack:///./views/dashboard/dashboard.html?");
+eval("module.exports = \"<h4 class=\\\"container pt-2\\\">Period 26-30 August 2019</h4> <div ng-repeat=\\\"breakfast in breakfasts track by $index\\\"> <div class=\\\"container d-flex justify-content-between text-secondary\\\"> <h5>{{days[$index]}}</h5> <small>{{breakfast[0].plan.date | date}}</small> </div> <div class=container> <div class=\\\"card mb-2\\\"> <div class=card-body> <h6>Breakfast</h6> <div class=\\\"d-flex justify-content-between\\\" ng-repeat=\\\"item in breakfast\\\"> <div class=tr-label>{{item.plan.meal.name}}</div> <div class=tr-status> {{item.plan.meal.likes}} <i data-feather=thumbs-up></i> {{item.plan.meal.dislikes}} <i data-feather=thumbs-down></i> {{item.plan.meal.bored}} <i data-feather=meh></i> {{item.totalComment}} <i data-feather=message-square></i> </div> </div> </div> </div> <div class=\\\"card mb-2\\\"> <div class=card-body> <h6>Lunch</h6> <div class=\\\"d-flex justify-content-between\\\" ng-repeat=\\\"item in lunches[$index]\\\"> <div class=tr-label>{{item.plan.meal.name}}</div> <div class=tr-status> {{item.plan.meal.likes}} <i data-feather=thumbs-up></i> {{item.plan.meal.dislikes}} <i data-feather=thumbs-down></i> {{item.plan.meal.bored}} <i data-feather=meh></i> {{item.totalComment}} <i data-feather=message-square></i> </div> </div> </div> </div> </div> <hr> </div>\";\n\n//# sourceURL=webpack:///./views/dashboard/dashboard.html?");
 
 /***/ }),
 
@@ -338,7 +371,7 @@ eval("module.exports = \"<h4 class=container>Period 26-30 August 2019</h4> <div 
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("(function () {\r\n    'use strict';\r\n\r\n    // Usage:\r\n    // Dashboard view.\r\n\r\n    window.app\r\n        .component('dashboard', {\r\n            template: __webpack_require__(/*! ./dashboard.html */ \"./views/dashboard/dashboard.html\"),\r\n            controller: _\r\n        });\r\n\r\n    _.$inject = ['$scope', 'MealPlantRestService'];\r\n    function _($scope, MealPlantRestService) {\r\n        let $ctrl = this;\r\n        $ctrl.$onInit = () => {\r\n            MealPlantRestService.getThisWeekMealPlan({ start: '2019-09-09', end: '2019-09-13' })\r\n                .then(({ data }) => {\r\n                    $scope.data = data;\r\n                })\r\n        };\r\n    }\r\n})();\n\n//# sourceURL=webpack:///./views/dashboard/dashboard.js?");
+eval("__webpack_require__(/*! ./dashboard.css */ \"./views/dashboard/dashboard.css\");\r\nconst feather = __webpack_require__(/*! feather-icons */ \"./node_modules/feather-icons/dist/feather.js\");\r\n\r\n(function () {\r\n    'use strict';\r\n\r\n    // Usage:\r\n    // Dashboard view.\r\n\r\n    window.app\r\n        .component('dashboard', {\r\n            template: __webpack_require__(/*! ./dashboard.html */ \"./views/dashboard/dashboard.html\"),\r\n            controller: _\r\n        });\r\n\r\n    _.$inject = ['$scope', '$timeout', 'MealPlantRestService'];\r\n    function _($scope, $timeout, MealPlantRestService) {\r\n        let $ctrl = this;\r\n        $ctrl.$onInit = () => {\r\n            const getMondaySunday = () => {\r\n                let d = new Date(),\r\n                    day = d.getDay(),\r\n                    diff = d.getDate() - day + (day == 0 ? -6 : 1),\r\n                    monday = new Date(d.setDate(diff)),\r\n                    sunday = new Date(d.setDate(monday.getDate() + 6));\r\n\r\n                return {\r\n                    monday: monday.toISOString().substr(0, 10),\r\n                    sunday: sunday.toISOString().substr(0, 10)\r\n                }\r\n            }\r\n\r\n            MealPlantRestService.getThisWeekMealPlan({ start: '2019-08-26', end: '2019-09-02' }).then(({ data }) => {\r\n                $scope.breakfasts = data.plans.map(_ => _.filter(__ => __.plan.period === 1));\r\n                $scope.lunches = data.plans.map(_ => _.filter(__ => __.plan.period === 2));\r\n                $scope.days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];\r\n                console.log($scope.breakfasts, $scope.lunches);\r\n\r\n                $timeout(() => {\r\n                    feather.replace();\r\n                });\r\n            });\r\n        };\r\n    }\r\n})();\n\n//# sourceURL=webpack:///./views/dashboard/dashboard.js?");
 
 /***/ }),
 

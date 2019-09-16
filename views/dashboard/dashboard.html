@@ -1,52 +1,46 @@
-<h4 class="container">Period 26-30 August 2019</h4>
-<div class="container d-flex justify-content-between text-secondary">
-    <h5>Monday</h5>
-    <small>26 August 2019</small>
+<h4 class="container pt-2">Period 26-30 August 2019</h4>
+<div ng-repeat="breakfast in breakfasts track by $index">
+    <div class="container d-flex justify-content-between text-secondary">
+        <h5>{{days[$index]}}</h5>
+        <small>{{breakfast[0].plan.date | date}}</small>
+    </div>
+    <div class="container">
+        <div class="card mb-2">
+            <div class="card-body">
+                <h6>Breakfast</h6>
+                <div class="d-flex justify-content-between" ng-repeat="item in breakfast">
+                    <div class="tr-label">{{item.plan.meal.name}}</div>
+                    <div class="tr-status">
+                        {{item.plan.meal.likes}}
+                        <i data-feather="thumbs-up"></i>
+                        {{item.plan.meal.dislikes}}
+                        <i data-feather="thumbs-down"></i>
+                        {{item.plan.meal.bored}}
+                        <i data-feather="meh"></i>
+                        {{item.totalComment}}
+                        <i data-feather="message-square"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-2">
+            <div class="card-body">
+                <h6>Lunch</h6>
+                <div class="d-flex justify-content-between" ng-repeat="item in lunches[$index]">
+                    <div class="tr-label">{{item.plan.meal.name}}</div>
+                    <div class="tr-status">
+                        {{item.plan.meal.likes}}
+                        <i data-feather="thumbs-up"></i>
+                        {{item.plan.meal.dislikes}}
+                        <i data-feather="thumbs-down"></i>
+                        {{item.plan.meal.bored}}
+                        <i data-feather="meh"></i>
+                        {{item.totalComment}}
+                        <i data-feather="message-square"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
 </div>
-<div class="container">
-    <div class="card mb-2">
-        <div class="card-body">
-            <h6>Breakfast</h6>
-            hallo indonesia
-        </div>
-    </div>
-    <div class="card mb-2">
-        <div class="card-body">
-            <h6>Lunch</h6>
-            hallo indonesia
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-body">
-            <h6>Snack</h6>
-            hallo indonesia
-        </div>
-    </div>
-</div>
-<hr>
-
-<div class="container d-flex justify-content-between text-secondary">
-    <h5>Tuesday</h5>
-    <small>27 August 2019</small>
-</div>
-<div class="container">
-    <div class="card mb-2">
-        <div class="card-body">
-            <h6>Breakfast</h6>
-            hallo indonesia
-        </div>
-    </div>
-    <div class="card mb-2">
-        <div class="card-body">
-            <h6>Lunch</h6>
-            hallo indonesia
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-body">
-            <h6>Snack</h6>
-            hallo indonesia
-        </div>
-    </div>
-</div>
-<hr>

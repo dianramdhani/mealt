@@ -20,6 +20,9 @@ require('./routes/user.route');
 require('./services/main.service');
 require('./services/meal-plant-rest.service');
 
+// DIRECTIVES
+require('./directives/tr-repeat-end.directive');
+
 // VIEWS
 require('./views/login/login');
 require('./views/user-container/user-container');

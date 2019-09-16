@@ -1,0 +1,10 @@
+dashboard .tr-status {
+    zoom: 0.7;
+}
+
+dashboard .tr-label {
+    width: 50%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
