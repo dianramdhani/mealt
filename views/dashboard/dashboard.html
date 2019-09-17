@@ -1,46 +1,51 @@
-<h4 class="container pt-2">Period 26-30 August 2019</h4>
-<div ng-repeat="breakfast in breakfasts track by $index">
-    <div class="container d-flex justify-content-between text-secondary">
-        <h5>{{days[$index]}}</h5>
-        <small>{{breakfast[0].plan.date | date}}</small>
-    </div>
-    <div class="container">
-        <div class="card mb-2">
-            <div class="card-body">
-                <h6>Breakfast</h6>
-                <div class="d-flex justify-content-between" ng-repeat="item in breakfast">
-                    <div class="tr-label">{{item.plan.meal.name}}</div>
-                    <div class="tr-status">
-                        {{item.plan.meal.likes}}
-                        <i data-feather="thumbs-up"></i>
-                        {{item.plan.meal.dislikes}}
-                        <i data-feather="thumbs-down"></i>
-                        {{item.plan.meal.bored}}
-                        <i data-feather="meh"></i>
-                        {{item.totalComment}}
-                        <i data-feather="message-square"></i>
+<div class="container">
+    <div ng-repeat="breakfast in breakfasts track by $index">
+        <div class="text-right mt-3">
+            <h2 class="mb-0">{{days[$index]}}</h2>
+            <small class="text-secondary">{{breakfast[0].plan.date | date}}</small>
+        </div>
+        <h4 class="mt-2 text-secondary pb-2">Breakfast</h4>
+        <div class="d-flex justify-content-between border-bottom border-silver mt-3 pb-3" ng-repeat="item in breakfast">
+            <img class="tr-img-thumbnail" src="../../img/inf.png">
+            <div class="text-right">
+                <h5 class="text-right font-weight-light mb-4">{{item.plan.meal.name}}</h5>
+                <div class="row">
+                    <div class="col d-flex">
+                        <i class="feather-32" data-feather="thumbs-up"></i>
+                        <small>{{item.plan.meal.likes}}</small>
+                    </div>
+                    <div class="col d-flex">
+                        <i class="feather-32" data-feather="thumbs-down"></i>
+                        <small>{{item.plan.meal.dislikes}}</small>
+                    </div>
+                    <div class="col d-flex">
+                        <i class="feather-32" data-feather="meh"></i>
+                        <small>{{item.plan.meal.bored}}</small>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="card mb-2">
-            <div class="card-body">
-                <h6>Lunch</h6>
-                <div class="d-flex justify-content-between" ng-repeat="item in lunches[$index]">
-                    <div class="tr-label">{{item.plan.meal.name}}</div>
-                    <div class="tr-status">
-                        {{item.plan.meal.likes}}
-                        <i data-feather="thumbs-up"></i>
-                        {{item.plan.meal.dislikes}}
-                        <i data-feather="thumbs-down"></i>
-                        {{item.plan.meal.bored}}
-                        <i data-feather="meh"></i>
-                        {{item.totalComment}}
-                        <i data-feather="message-square"></i>
+        <h4 class="mt-2 text-secondary pb-2">Lunch</h4>
+        <div class="d-flex justify-content-between border-bottom border-silver mt-3 pb-3"
+            ng-repeat="item in lunches[$index]">
+            <img class="tr-img-thumbnail" src="../../img/inf.png">
+            <div class="text-right">
+                <h5 class="text-right font-weight-light mb-4">{{item.plan.meal.name}}</h5>
+                <div class="row">
+                    <div class="col d-flex">
+                        <i class="feather-32" data-feather="thumbs-up"></i>
+                        <small>{{item.plan.meal.likes}}</small>
+                    </div>
+                    <div class="col d-flex">
+                        <i class="feather-32" data-feather="thumbs-down"></i>
+                        <small>{{item.plan.meal.dislikes}}</small>
+                    </div>
+                    <div class="col d-flex">
+                        <i class="feather-32" data-feather="meh"></i>
+                        <small>{{item.plan.meal.bored}}</small>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <hr>
 </div>

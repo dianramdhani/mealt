@@ -8,3 +8,8 @@ dashboard .tr-label {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+dashboard .tr-img-thumbnail {
+    width: 100px;
+    height: 100px;
+}
