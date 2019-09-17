@@ -28,6 +28,7 @@ require('./views/login/login');
 require('./views/user-container/user-container');
 require('./views/dashboard/dashboard');
 require('./views/meal/meal');
+require('./views/comment/comment');
 
 // RUN
 (function () {
