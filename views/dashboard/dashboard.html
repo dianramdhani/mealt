@@ -4,11 +4,11 @@
             <h2 class="mb-0">{{days[$index]}}</h2>
             <small class="text-secondary">{{breakfast[0].plan.date | date}}</small>
         </div>
-        <h4 class="mt-2 text-secondary pb-2">Breakfast</h4>
+        <h5 class="mt-3 text-secondary pb-2">Breakfast</h5>
         <div class="d-flex justify-content-between border-bottom border-silver mt-3 pb-3" ng-repeat="item in breakfast">
             <img class="tr-img-thumbnail" src="../../img/inf.png">
             <div class="text-right">
-                <h5 class="text-right font-weight-light mb-4">{{item.plan.meal.name}}</h5>
+                <label class="font-weight-light mb-4">{{item.plan.meal.name}}</label>
                 <div class="row">
                     <div class="col d-flex">
                         <i class="feather-32" data-feather="thumbs-up"></i>
@@ -25,12 +25,12 @@
                 </div>
             </div>
         </div>
-        <h4 class="mt-2 text-secondary pb-2">Lunch</h4>
+        <h5 class="mt-3 text-secondary pb-2">Lunch</h5>
         <div class="d-flex justify-content-between border-bottom border-silver mt-3 pb-3"
             ng-repeat="item in lunches[$index]">
             <img class="tr-img-thumbnail" src="../../img/inf.png">
             <div class="text-right">
-                <h5 class="text-right font-weight-light mb-4">{{item.plan.meal.name}}</h5>
+                <label class="font-weight-light mb-4">{{item.plan.meal.name}}</label>
                 <div class="row">
                     <div class="col d-flex">
                         <i class="feather-32" data-feather="thumbs-up"></i>
