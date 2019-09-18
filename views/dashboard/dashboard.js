@@ -13,11 +13,10 @@ const feather = require('feather-icons');
             controller: _
         });
 
-    _.$inject = ['$scope', '$timeout', 'MealPlantRestService'];
-    function _($scope, $timeout, MealPlantRestService) {
-        let $ctrl = this;
-        $ctrl.$onInit = () => {
-            const getMondaySunday = () => {
+    _.$inject = ['$scope', '$timeout', '$log', 'MealPlantRestService', 'UserReactionRestService'];
+    function _($scope, $timeout, $log, MealPlantRestService, UserReactionRestService) {
+        const reloadData = () => {
+            const getDate = () => {
                 let d = new Date(),
                     day = d.getDay(),
                     diff = d.getDate() - day + (day == 0 ? -6 : 1),
@@ -30,16 +29,37 @@ const feather = require('feather-icons');
                 }
             }
 
-            MealPlantRestService.getThisWeekMealPlan({ start: '2019-08-26', end: '2019-09-02' }).then(({ data }) => {
+            let { monday, sunday } = getDate();
+
+            MealPlantRestService.getThisWeekMealPlan({ start: monday, end: sunday }).then(({ data }) => {
                 $scope.breakfasts = data.plans.map(_ => _.filter(__ => __.plan.period === 1));
                 $scope.lunches = data.plans.map(_ => _.filter(__ => __.plan.period === 2));
                 $scope.days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
-                console.log($scope.breakfasts, $scope.lunches);
 
                 $timeout(() => {
                     feather.replace();
                 });
             });
+        };
+
+        let $ctrl = this;
+        $ctrl.$onInit = () => {
+            reloadData();
+        };
+
+        $scope.like = async (mealId) => {
+            await UserReactionRestService.like(mealId);
+            reloadData();
+        };
+
+        $scope.dislike = async (mealId) => {
+            await UserReactionRestService.dislike(mealId);
+            reloadData();
+        };
+
+        $scope.bored = async (mealId) => {
+            await UserReactionRestService.bored(mealId);
+            reloadData();
         };
     }
 })();

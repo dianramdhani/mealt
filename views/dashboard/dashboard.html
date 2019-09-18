@@ -10,15 +10,17 @@
             <div class="text-right">
                 <label class="font-weight-light mb-4">{{item.plan.meal.name}}</label>
                 <div class="row">
-                    <div class="col d-flex">
+                    <div class="col d-flex" ng-class="{active: item.reaction === 1}" ng-click="like(item.plan.meal.id)">
                         <i class="feather-32" data-feather="thumbs-up"></i>
                         <small>{{item.plan.meal.likes}}</small>
                     </div>
-                    <div class="col d-flex">
+                    <div class="col d-flex" ng-class="{active: item.reaction === 2}"
+                        ng-click="dislike(item.plan.meal.id)">
                         <i class="feather-32" data-feather="thumbs-down"></i>
                         <small>{{item.plan.meal.dislikes}}</small>
                     </div>
-                    <div class="col d-flex">
+                    <div class="col d-flex" ng-class="{active: item.reaction === 3}"
+                        ng-click="bored(item.plan.meal.id)">
                         <i class="feather-32" data-feather="meh"></i>
                         <small>{{item.plan.meal.bored}}</small>
                     </div>
@@ -32,15 +34,17 @@
             <div class="text-right">
                 <label class="font-weight-light mb-4">{{item.plan.meal.name}}</label>
                 <div class="row">
-                    <div class="col d-flex">
+                    <div class="col d-flex" ng-class="{active: item.reaction === 1}" ng-click="like(item.plan.meal.id)">
                         <i class="feather-32" data-feather="thumbs-up"></i>
                         <small>{{item.plan.meal.likes}}</small>
                     </div>
-                    <div class="col d-flex">
+                    <div class="col d-flex" ng-class="{active: item.reaction === 2}"
+                        ng-click="dislike(item.plan.meal.id)">
                         <i class="feather-32" data-feather="thumbs-down"></i>
                         <small>{{item.plan.meal.dislikes}}</small>
                     </div>
-                    <div class="col d-flex">
+                    <div class="col d-flex" ng-class="{active: item.reaction === 3}"
+                        ng-click="bored(item.plan.meal.id)">
                         <i class="feather-32" data-feather="meh"></i>
                         <small>{{item.plan.meal.bored}}</small>
                     </div>

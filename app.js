@@ -19,6 +19,7 @@ require('./routes/user.route');
 // SERVICES
 require('./services/main.service');
 require('./services/meal-plant-rest.service');
+require('./services/user-reaction-rest.service');
 
 // DIRECTIVES
 require('./directives/tr-repeat-end.directive');

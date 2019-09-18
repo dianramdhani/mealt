@@ -19,11 +19,6 @@ user-container .tr-header-menu {
 
 user-container .tr-header-menu svg {
     margin-left: 1rem;
-    color: #6c757d;
-}
-
-user-container .tr-header-menu .active {
-    color: #e62129;
 }
 
 user-container .tr-content {
