@@ -10,6 +10,7 @@ dashboard .tr-label {
 }
 
 dashboard .tr-img-thumbnail {
-    width: 100px;
     height: 100px;
+    width: 100px;
+    object-fit: cover;
 }

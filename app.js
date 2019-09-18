@@ -23,6 +23,7 @@ require('./services/user-reaction-rest.service');
 
 // DIRECTIVES
 require('./directives/tr-repeat-end.directive');
+require('./directives/tr-image-changer.directive');
 
 // VIEWS
 require('./views/login/login');
