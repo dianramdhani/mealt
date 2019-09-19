@@ -23,8 +23,8 @@
                     attrs.$set('src', `${url}${scope.item.plan.meal.pic}`);
                 }
             } catch (err) {
-                if (scope.pic) {
-                    attrs.$set('src', `${url}${scope.pic}`);
+                if (scope.meal.pic !== '') {
+                    attrs.$set('src', `${url}${scope.meal.pic}`);
                 }
             }
         }

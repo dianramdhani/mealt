@@ -14,7 +14,3 @@ comment .tr-content {
     overflow-y: auto;
     overflow-wrap: break-word;
 }
-
-comment .tr-comments small {
-    display: block;
-}

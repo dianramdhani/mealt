@@ -15,11 +15,24 @@ const feather = require('feather-icons');
 
     _.$inject = ['$scope', '$stateParams', 'CommentRestService'];
     function _($scope, $stateParams, CommentRestService) {
+        const reloadData = () => {
+            feather.replace();
+            $scope.meal = JSON.parse($stateParams.meal);
+            CommentRestService.getAllComment({ mealId: $scope.meal.id }).then(({ data }) => {
+                $scope.comments = data;
+            });
+        }
+
         var $ctrl = this;
         $ctrl.$onInit = () => {
-            $scope.pic = $stateParams.pic;
-            console.log($stateParams);
-            feather.replace();
+            reloadData();
+        };
+
+        $scope.send = async () => {
+            await CommentRestService.createComment({ mealId: $scope.meal.id, comment: $scope.myComment });
+            reloadData();
+            $scope.myComment = '';
+            $scope.$apply();
         };
     }
 })();
