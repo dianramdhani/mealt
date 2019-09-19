@@ -20,6 +20,7 @@ require('./routes/user.route');
 require('./services/main.service');
 require('./services/meal-plant-rest.service');
 require('./services/user-reaction-rest.service');
+require('./services/comment-rest.service');
 
 // DIRECTIVES
 require('./directives/tr-repeat-end.directive');

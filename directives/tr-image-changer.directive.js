@@ -18,8 +18,14 @@
 
         function link(scope, element, attrs) {
             const url = CONFIG.IMAGEURL;
-            if (scope.item.plan.meal.pic !== '') {
-                attrs.$set('src', `${url}${scope.item.plan.meal.pic}`);
+            try {
+                if (scope.item.plan.meal.pic !== '') {
+                    attrs.$set('src', `${url}${scope.item.plan.meal.pic}`);
+                }
+            } catch (err) {
+                if (scope.pic) {
+                    attrs.$set('src', `${url}${scope.pic}`);
+                }
             }
         }
     }
