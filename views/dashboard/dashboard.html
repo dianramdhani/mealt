@@ -31,7 +31,8 @@
         <h5 class="mt-3 text-secondary pb-2">Lunch</h5>
         <div class="d-flex justify-content-between border-bottom border-silver mt-3 pb-3"
             ng-repeat="item in lunches[$index]">
-            <img class="tr-img-thumbnail" src="../../img/inf.png" ui-sref="user.comment">
+            <img class="tr-img-thumbnail" src="../../img/inf.png" ui-sref="user.comment"
+                tr-image-changer="item.plan.meal.pic">
             <div class="text-right">
                 <label class="font-weight-light mb-4">{{item.plan.meal.name}}</label>
                 <div class="row">
