@@ -32,8 +32,8 @@ const feather = require('feather-icons');
             let { monday, sunday } = getDate();
 
             MealPlantRestService.getThisWeekMealPlan({ start: monday, end: sunday }).then(({ data }) => {
-                $scope.breakfasts = data.plans.map(_ => _.filter(__ => __.plan.period === 1));
-                $scope.lunches = data.plans.map(_ => _.filter(__ => __.plan.period === 2));
+                $scope.breakfasts = data.map(_ => _.filter(__ => __.plan.period === 1));
+                $scope.lunches = data.map(_ => _.filter(__ => __.plan.period === 2));
                 $scope.days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 
                 $timeout(() => {

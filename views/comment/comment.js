@@ -19,7 +19,7 @@ const feather = require('feather-icons');
             feather.replace();
             $scope.meal = JSON.parse($stateParams.meal);
             CommentRestService.getAllComment({ mealId: $scope.meal.id }).then(({ data }) => {
-                $scope.comments = data;
+                $scope.comments = data.comments;
             });
         }
 
