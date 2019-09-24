@@ -21,6 +21,7 @@ require('./services/main.service');
 require('./services/meal-plant-rest.service');
 require('./services/user-reaction-rest.service');
 require('./services/comment-rest.service');
+require('./services/meal-rest.service');
 
 // DIRECTIVES
 require('./directives/tr-repeat-end.directive');
@@ -56,7 +57,7 @@ require('./views/comment/comment');
              * tidak selalu user
              * compare with role
              */
-            $state.go('user');
+            $state.go('user.dashboard');
         }
     }
 })();

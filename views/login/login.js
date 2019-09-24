@@ -21,7 +21,7 @@
                     username: $scope.data.username,
                     password: $scope.data.password
                 });
-                $state.go('user');
+                $state.go('user.dashboard');
             } catch (error) {
                 $scope.res = error;
                 $scope.$apply();

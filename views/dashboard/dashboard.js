@@ -63,7 +63,7 @@ const feather = require('feather-icons');
         };
 
         $scope.comment = (meal) => {
-            $state.go('comment', { meal: JSON.stringify(meal) });
-        }
+            $state.go('comment', { meal: JSON.stringify(meal), backState: 'user.dashboard' });
+        };
     }
 })();

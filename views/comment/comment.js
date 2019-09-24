@@ -18,6 +18,7 @@ const feather = require('feather-icons');
         const reloadData = () => {
             feather.replace();
             $scope.meal = JSON.parse($stateParams.meal);
+            $scope.backState = $stateParams.backState;
             CommentRestService.getAllComment({ mealId: $scope.meal.id }).then(({ data }) => {
                 $scope.comments = data.comments;
             });

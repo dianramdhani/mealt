@@ -18,8 +18,11 @@ const feather = require('feather-icons');
         let $ctrl = this;
         $ctrl.$onInit = () => {
             $scope.menu = 'dashboard';
-            $state.go('user.dashboard');
             feather.replace();
+
+            $scope.$watch(() => $state.current.component, (current) => {
+                $scope.menu = current;
+            });
         };
 
         $scope.logout = () => {

@@ -10,7 +10,7 @@
         [
             { name: 'login', url: '/login', component: 'login' },
             { name: 'user', url: '/user', component: 'userContainer' },
-            { name: 'comment', url: '/comment?{meal}', component: 'comment' },
+            { name: 'comment', url: '/comment?{meal}&{backState}', component: 'comment' },
         ]
             .forEach(state => $stateProvider.state(state));
     }

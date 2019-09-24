@@ -1,43 +1,27 @@
 <div class="container my-3">
-    <input type="text" class="form-control text-center" placeholder="Search meal">
+    <input type="text" class="form-control text-center" placeholder="Search meal" ng-model="search">
 </div>
 <div class="container">
-    <div class="d-flex justify-content-between border-bottom border-silver mt-3 pb-3">
-        <img class="tr-img-thumbnail" src="../../img/inf.png">
+    <div class="d-flex justify-content-between border-bottom border-silver mt-3 pb-3"
+        ng-repeat="meal in meals.meals | filter:search">
+        <img class="tr-img-thumbnail" src="../../img/inf.png" tr-image-changer="meal.pic" ng-click="comment(meal)">
         <div class="text-right">
-            <label class="font-weight-light mb-4">Nasi Uduk</label>
+            <label class="mb-0">{{meal.name}}</label>
+            <small class="text-secondary mb-2 mr-2" style="display: block">
+                Vendor : <span class="font-weight-bold">{{meal.vendorName}}</span>
+            </small>
             <div class="row">
                 <div class="col d-flex">
                     <i class="feather-32" data-feather="thumbs-up"></i>
-                    <small>20</small>
+                    <small>{{meal.likes}}</small>
                 </div>
                 <div class="col d-flex">
                     <i class="feather-32" data-feather="thumbs-down"></i>
-                    <small>30</small>
+                    <small>{{meal.dislikes}}</small>
                 </div>
                 <div class="col d-flex">
                     <i class="feather-32" data-feather="meh"></i>
-                    <small>40</small>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="d-flex justify-content-between border-bottom border-silver mt-3 pb-3">
-        <img class="tr-img-thumbnail" src="../../img/inf.png">
-        <div class="text-right">
-            <label class="font-weight-light mb-4">Nasi Uduk</label>
-            <div class="row">
-                <div class="col d-flex">
-                    <i class="feather-32" data-feather="thumbs-up"></i>
-                    <small>20</small>
-                </div>
-                <div class="col d-flex">
-                    <i class="feather-32" data-feather="thumbs-down"></i>
-                    <small>30</small>
-                </div>
-                <div class="col d-flex">
-                    <i class="feather-32" data-feather="meh"></i>
-                    <small>40</small>
+                    <small>{{meal.bored}}</small>
                 </div>
             </div>
         </div>

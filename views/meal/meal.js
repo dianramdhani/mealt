@@ -13,11 +13,25 @@ const feather = require('feather-icons');
             controller: _
         });
 
-    _.$inject = [];
-    function _() {
+    _.$inject = ['$scope', '$timeout', '$state', 'MealRestService'];
+    function _($scope, $timeout, $state, MealRestService) {
         let $ctrl = this;
-        $ctrl.$onInit = () => {
-            feather.replace();
+        $ctrl.$onInit = async () => {
+            $scope.meals = await MealRestService.getAllMeal().then(_ => _.data);
+            $scope.$apply();
+            $timeout(() => {
+                feather.replace();
+            });
+
+            $scope.$watch('search', () => {
+                $timeout(() => {
+                    feather.replace();
+                }, 500);
+            });
+        };
+
+        $scope.comment = (meal) => {
+            $state.go('comment', { meal: JSON.stringify(meal), backState: 'user.meal' });
         };
     }
 })();
