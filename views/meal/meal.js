@@ -17,6 +17,7 @@ const feather = require('feather-icons');
     function _($scope, $timeout, $state, MealRestService) {
         let $ctrl = this;
         $ctrl.$onInit = async () => {
+            $scope.meals = false;
             $scope.meals = await MealRestService.getAllMeal().then(_ => _.data);
             $scope.$apply();
             $timeout(() => {

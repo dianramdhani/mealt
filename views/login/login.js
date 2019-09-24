@@ -10,8 +10,8 @@
             controller: _
         });
 
-    _.$inject = ['$scope', '$state', 'MainService'];
-    function _($scope, $state, MainService) {
+    _.$inject = ['$scope', '$state', '$element', 'MainService'];
+    function _($scope, $state, $element, MainService) {
         let $ctrl = this;
         $ctrl.$onInit = () => { };
 
@@ -23,7 +23,7 @@
                 });
                 $state.go('user.dashboard');
             } catch (error) {
-                $scope.res = error;
+                $scope.showError = true;
                 $scope.$apply();
             }
         };
