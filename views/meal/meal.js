@@ -1,3 +1,6 @@
+require('./meal.css');
+const feather = require('feather-icons');
+
 (function () {
     'use strict';
 
@@ -13,6 +16,8 @@
     _.$inject = [];
     function _() {
         let $ctrl = this;
-        $ctrl.$onInit = () => { };
+        $ctrl.$onInit = () => {
+            feather.replace();
+        };
     }
 })();
