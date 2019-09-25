@@ -4,8 +4,8 @@
     window.app
         .directive('trImageChanger', trImageChanger);
 
-    trImageChanger.$inject = ['CONFIG'];
-    function trImageChanger(CONFIG) {
+    trImageChanger.$inject = ['$timeout', 'CONFIG'];
+    function trImageChanger($timeout, CONFIG) {
         // Usage:
         // Change image src if has model.
         // Creates:
@@ -17,16 +17,19 @@
         return directive;
 
         function link(scope, element, attrs) {
-            const url = CONFIG.IMAGEURL;
-            try {
-                if (scope.item.plan.meal.pic !== '') {
-                    attrs.$set('src', `${url}${scope.item.plan.meal.pic}`);
+            $timeout(() => {
+                const url = CONFIG.IMAGEURL;
+                if (scope.hasOwnProperty('item')) {
+                    if (scope.item.plan.meal.pic !== '') {
+                        attrs.$set('src', `${url}${scope.item.plan.meal.pic}`);
+                    }
                 }
-            } catch (err) {
-                if (scope.meal.pic !== '') {
-                    attrs.$set('src', `${url}${scope.meal.pic}`);
+                if (scope.hasOwnProperty('meal')) {
+                    if (scope.meal.pic !== '') {
+                        attrs.$set('src', `${url}${scope.meal.pic}`);
+                    }
                 }
-            }
+            });
         }
     }
 })();

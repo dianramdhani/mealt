@@ -13,8 +13,8 @@ const feather = require('feather-icons');
             controller: _
         });
 
-    _.$inject = ['$scope', '$timeout', '$state', 'MealRestService'];
-    function _($scope, $timeout, $state, MealRestService) {
+    _.$inject = ['$scope', '$timeout', '$element', '$compile', 'MealRestService'];
+    function _($scope, $timeout, $element, $compile, MealRestService) {
         let $ctrl = this;
         $ctrl.$onInit = async () => {
             $scope.meals = false;
@@ -32,7 +32,8 @@ const feather = require('feather-icons');
         };
 
         $scope.comment = (meal) => {
-            $state.go('comment', { meal: JSON.stringify(meal), backState: 'user.meal' });
+            $scope.meal = meal;
+            $element.prepend($compile(`<comment-absolute meal="meal"></comment-absolute>`)($scope));
         };
     }
 })();

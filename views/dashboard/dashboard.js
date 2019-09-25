@@ -13,8 +13,8 @@ const feather = require('feather-icons');
             controller: _
         });
 
-    _.$inject = ['$scope', '$timeout', '$log', '$state', '$element', '$compile', 'MealPlantRestService', 'UserReactionRestService'];
-    function _($scope, $timeout, $log, $state, $element, $compile, MealPlantRestService, UserReactionRestService) {
+    _.$inject = ['$scope', '$timeout', '$element', '$compile', 'MealPlantRestService', 'UserReactionRestService'];
+    function _($scope, $timeout, $element, $compile, MealPlantRestService, UserReactionRestService) {
         const reloadData = () => {
             const getDate = () => {
                 let d = new Date(),
