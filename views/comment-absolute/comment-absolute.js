@@ -1,24 +1,26 @@
-require('./comment.css');
+require('./comment-absolute.css');
 const feather = require('feather-icons');
 
 (function () {
     'use strict';
 
     // Usage:
-    // Comment page.
+    // Comment absolute like modal.
 
     window.app
-        .component('comment', {
-            template: require('./comment.html'),
-            controller: _
+        .component('commentAbsolute', {
+            template: require('./comment-absolute.html'),
+            controller: _,
+            bindings: {
+                meal: '<',
+            },
         });
 
-    _.$inject = ['$scope', '$stateParams', 'CommentRestService'];
-    function _($scope, $stateParams, CommentRestService) {
+    _.$inject = ['$scope', '$timeout', '$element', 'CommentRestService'];
+    function _($scope, $timeout, $element, CommentRestService) {
         const reloadData = () => {
             feather.replace();
-            $scope.meal = JSON.parse($stateParams.meal);
-            $scope.backState = $stateParams.backState;
+            $scope.meal = $ctrl.meal;
             CommentRestService.getAllComment({ mealId: $scope.meal.id }).then(({ data }) => {
                 $scope.comments = data.comments;
             });
@@ -26,7 +28,7 @@ const feather = require('feather-icons');
 
         var $ctrl = this;
         $ctrl.$onInit = () => {
-            reloadData();
+            $timeout(reloadData);
         };
 
         $scope.send = async () => {
@@ -34,6 +36,10 @@ const feather = require('feather-icons');
             reloadData();
             $scope.myComment = '';
             $scope.$apply();
+        };
+
+        $scope.back = () => {
+            $element.remove();
         };
     }
 })();

@@ -13,8 +13,8 @@ const feather = require('feather-icons');
             controller: _
         });
 
-    _.$inject = ['$scope', '$timeout', '$log', '$state', 'MealPlantRestService', 'UserReactionRestService'];
-    function _($scope, $timeout, $log, $state, MealPlantRestService, UserReactionRestService) {
+    _.$inject = ['$scope', '$timeout', '$element', '$compile', 'MealPlantRestService', 'UserReactionRestService'];
+    function _($scope, $timeout, $element, $compile, MealPlantRestService, UserReactionRestService) {
         const reloadData = () => {
             const getDate = () => {
                 let d = new Date(),
@@ -63,7 +63,8 @@ const feather = require('feather-icons');
         };
 
         $scope.comment = (meal) => {
-            $state.go('comment', { meal: JSON.stringify(meal), backState: 'user.dashboard' });
+            $scope.meal = meal;
+            $element.prepend($compile(`<comment-absolute meal="meal"></comment-absolute>`)($scope));
         };
     }
 })();

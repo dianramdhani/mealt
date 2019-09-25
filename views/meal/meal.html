@@ -1,6 +1,7 @@
 <div class="position-absolute bg-white w-100" style="z-index: 99;">
     <div class="container my-3">
-        <input type="text" class="form-control text-center" placeholder="Search meal here" ng-model="search">
+        <input type="text" class="form-control text-center" placeholder="Search meal here" ng-model="search"
+            ng-model-options="{debounce: 300}">
     </div>
 </div>
 <div class="container tr-gap-top">
