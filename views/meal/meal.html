@@ -1,7 +1,9 @@
-<div class="container my-3">
-    <input type="text" class="form-control text-center" placeholder="Search meal" ng-model="search">
+<div class="position-absolute bg-white w-100" style="z-index: 99;">
+    <div class="container my-3">
+        <input type="text" class="form-control text-center" placeholder="Search meal here" ng-model="search">
+    </div>
 </div>
-<div class="container">
+<div class="container tr-gap-top">
     <div class="d-flex justify-content-between border-bottom border-silver mt-3 pb-3"
         ng-repeat="meal in meals.meals | filter:search">
         <img class="tr-img-thumbnail" src="../../img/inf.png" tr-image-changer="meal.pic" ng-click="comment(meal)">
@@ -26,7 +28,7 @@
             </div>
         </div>
     </div>
-    <div class="alert alert-primary text-center fade" role="alert" ng-class="{show: meals === false}">
+    <div class="alert alert-primary text-center fade tr-gap-top" role="alert" ng-class="{show: meals === false}">
         Please wait...
     </div>
 </div>

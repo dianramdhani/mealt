@@ -14,3 +14,7 @@ meal .tr-img-thumbnail {
     width: 100px;
     object-fit: cover;
 }
+
+meal .tr-gap-top {
+    margin-top: 70px;
+}
