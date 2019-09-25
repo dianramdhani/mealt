@@ -8,7 +8,8 @@
         <div class="container text-center mt-3">
             <img src="../../img/inf.png" class="img-fluid" tr-image-changer="meal.pic">
         </div>
-        <form name="formComment" class="container text-right mt-3" ng-submit="send(myComment)" ng-if="flag === 'post'">
+        <form name="formComment" class="container text-right mt-3" ng-submit="send(myComment); myComment = '';"
+            ng-if="flag === 'post'">
             <textarea class="form-control" rows="2" placeholder="Enter your comment" ng-model="myComment"
                 required></textarea>
             <button type="submit" class="btn btn-sm btn-primary mt-1 px-5 py-1">Send</button>

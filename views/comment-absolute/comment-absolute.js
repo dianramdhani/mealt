@@ -38,7 +38,6 @@ const feather = require('feather-icons');
         $scope.send = async (comment) => {
             if ($scope.flag === 'post') {
                 await CommentRestService.createComment({ mealId: $scope.meal.id, comment });
-                comment = '';
             }
             if ($scope.flag === 'edit') {
                 await CommentRestService.updateComment({ commentId: comment.id, comment: comment.comment });
