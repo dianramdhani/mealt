@@ -14,15 +14,15 @@
                 Vendor : <span class="font-weight-bold">{{meal.vendorName}}</span>
             </small>
             <div class="row">
-                <div class="col d-flex">
+                <div class="col d-flex" ng-class="{active: meal.reaction === 1}" ng-click="like(meal.id)">
                     <i class="feather-32" data-feather="thumbs-up"></i>
                     <small>{{meal.likes}}</small>
                 </div>
-                <div class="col d-flex">
+                <div class="col d-flex" ng-class="{active: meal.reaction === 2}" ng-click="dislike(meal.id)">
                     <i class="feather-32" data-feather="thumbs-down"></i>
                     <small>{{meal.dislikes}}</small>
                 </div>
-                <div class="col d-flex">
+                <div class="col d-flex" ng-class="{active: meal.reaction === 3}" ng-click="bored(meal.id)">
                     <i class="feather-32" data-feather="meh"></i>
                     <small>{{meal.bored}}</small>
                 </div>
