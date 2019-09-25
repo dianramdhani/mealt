@@ -29,18 +29,19 @@ const feather = require('feather-icons');
 
         var $ctrl = this;
         $ctrl.$onInit = () => {
+            $scope.myComment = '';
             $scope.user = $rootScope.global.user;
             $scope.flag = 'post';
             $timeout(reloadData);
         };
 
-        $scope.send = async () => {
+        $scope.send = async (comment) => {
             if ($scope.flag === 'post') {
-                await CommentRestService.createComment({ mealId: $scope.meal.id, comment: $scope.myComment });
-                $scope.myComment = '';
+                await CommentRestService.createComment({ mealId: $scope.meal.id, comment });
+                comment = '';
             }
             if ($scope.flag === 'edit') {
-                await CommentRestService.updateComment({ commentId: $scope.editComment.id, comment: $scope.editComment.comment });
+                await CommentRestService.updateComment({ commentId: comment.id, comment: comment.comment });
                 $scope.flag = 'post';
             }
             reloadData();
