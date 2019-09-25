@@ -8,6 +8,8 @@
     function CommentRestService($http, CONFIG) {
         this.getAllComment = getAllComment;
         this.createComment = createComment;
+        this.updateComment = updateComment;
+        this.deleteComment = deleteComment;
 
         const url = CONFIG.API;
 
@@ -17,6 +19,14 @@
 
         function createComment({ mealId, comment }) {
             return $http.post(`${url}/comment`, {}, { params: { mealId, comment } });
+        }
+
+        function updateComment({ commentId, comment }) {
+            return $http.post(`${url}/comment/update`, {}, { params: { commentId, comment } });
+        }
+
+        function deleteComment({ commentId }) {
+            return $http.delete(`${url}/comment`, { params: { commentId } });
         }
     }
 })();

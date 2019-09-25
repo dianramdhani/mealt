@@ -8,14 +8,28 @@
         <div class="container text-center mt-3">
             <img src="../../img/inf.png" class="img-fluid" tr-image-changer="meal.pic">
         </div>
-        <form name="formComment" class="container text-right mt-3" ng-submit="send()">
+        <form name="formComment" class="container text-right mt-3" ng-submit="send()" ng-if="flag === 'post'">
             <textarea class="form-control" rows="2" placeholder="Enter your comment" ng-model="myComment"></textarea>
             <button type="submit" class="btn btn-sm btn-primary mt-1 px-5 py-1">Send</button>
         </form>
+        <form name="formComment" class="container text-right mt-3" ng-submit="send()" ng-if="flag === 'edit'">
+            <textarea class="form-control" rows="2" placeholder="Enter your comment" id="edit"
+                ng-model="editComment.comment"></textarea>
+            <button class="btn btn-sm btn-secondary mt-1 py-1" ng-click="cancel()">Cancel</button>
+            <button class="btn btn-sm btn-danger mt-1 py-1" ng-click="delete()">Delete</button>
+            <button type="submit" class="btn btn-sm btn-primary mt-1 py-1">Send</button>
+        </form>
         <div class="container mt-5">
             <div ng-repeat-start="comment in comments track by $index">
-                <strong>{{comment.user.name}}</strong>
-                <small class="ml-1 text-secondary">{{comment.creationDate | date}}</small>
+                <div class="d-flex justify-content-between">
+                    <span>
+                        <strong>{{comment.user.name}}</strong>
+                        <small class="ml-1 text-secondary">{{comment.creationDate | date}}</small>
+                    </span>
+                    <span ng-show="user.name === comment.user.name" ng-click="edit(comment)">
+                        <i data-feather="edit" class="feather-16"></i>
+                    </span>
+                </div>
             </div>
             {{comment.comment}}
             <hr ng-repeat-end>
