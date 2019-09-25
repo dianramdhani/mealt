@@ -50,7 +50,8 @@
         <splash density="port-xxhdpi" src="www/res/screen/android/drawable-port-xxhdpi-screen.png" />
         <splash density="port-xxxhdpi" src="www/res/screen/android/drawable-port-xxxhdpi-screen.png" />
     </platform>
-    <preference name="fullscreen" value="true" />
+    <preference name="FullScreen" value="true" />
+    <preference name="StatusBarBackgroundColor" value="#ffffff" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
