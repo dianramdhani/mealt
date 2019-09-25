@@ -1,0 +1,24 @@
+<div class="tr-container bg-white">
+    <div class="container d-flex justify-content-between align-items-center tr-header">
+        <div ng-click="back()"><i data-feather="arrow-left"></i></div>
+        <h6 class="mb-0">{{meal.name}}</h6>
+        <div style="width: 24px">&nbsp;</div>
+    </div>
+    <div class="tr-content">
+        <div class="container text-center mt-3">
+            <img src="../../img/inf.png" class="img-fluid" tr-image-changer="meal.pic">
+        </div>
+        <form name="formComment" class="container text-right mt-3" ng-submit="send()">
+            <textarea class="form-control" rows="2" placeholder="Enter your comment" ng-model="myComment"></textarea>
+            <button type="submit" class="btn btn-sm btn-primary mt-1 px-5 py-1">Send</button>
+        </form>
+        <div class="container mt-5">
+            <div ng-repeat-start="comment in comments track by $index">
+                <strong>{{comment.user.name}}</strong>
+                <small class="ml-1 text-secondary">{{comment.creationDate | date}}</small>
+            </div>
+            {{comment.comment}}
+            <hr ng-repeat-end>
+        </div>
+    </div>
+</div>

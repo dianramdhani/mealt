@@ -1,0 +1,19 @@
+comment-absolute .tr-container {
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+comment-absolute .tr-header {
+    height: 60px;
+    border-bottom: 1px solid rgba(72, 94, 144, 0.16);
+}
+
+comment-absolute .tr-content {
+    width: 100%;
+    height: calc(100% - 60px);
+    overflow-y: auto;
+    overflow-wrap: break-word;
+}
