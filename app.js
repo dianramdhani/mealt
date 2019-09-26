@@ -34,6 +34,7 @@ document.addEventListener('deviceready', () => {
     require('./views/dashboard/dashboard');
     require('./views/meal/meal');
     require('./views/comment-absolute/comment-absolute');
+    require('./views/suggestion/suggestion');
 
     // RUN
     (function () {
