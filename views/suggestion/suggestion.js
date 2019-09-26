@@ -13,8 +13,8 @@ const feather = require('feather-icons');
             controller: _
         });
 
-    _.$inject = ['$scope', '$element', '$timeout'];
-    function _($scope, $element, $timeout) {
+    _.$inject = ['$scope', '$element', '$timeout', 'SuggestionRestService'];
+    function _($scope, $element, $timeout, SuggestionRestService) {
         var $ctrl = this;
         $ctrl.$onInit = () => {
             $scope.showAlert = false;
@@ -27,7 +27,7 @@ const feather = require('feather-icons');
         };
 
         $scope.send = async () => {
-            console.log($scope.mySuggestion);
+            await SuggestionRestService.createSuggestion($scope.mySuggestion);
             $scope.back();
         };
     }

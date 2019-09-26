@@ -23,6 +23,7 @@ document.addEventListener('deviceready', () => {
     require('./services/user-reaction-rest.service');
     require('./services/comment-rest.service');
     require('./services/meal-rest.service');
+    require('./services/suggestion-rest.service');
 
     // DIRECTIVES
     require('./directives/tr-repeat-end.directive');
