@@ -1,0 +1,28 @@
+<div class="tr-container bg-white">
+    <div class="container d-flex justify-content-between align-items-center tr-header">
+        <div ng-click="back()"><i data-feather="arrow-left"></i></div>
+        <h6 class="mb-0">Suggestion Form</h6>
+        <div style="width: 24px">&nbsp;</div>
+    </div>
+    <div class="tr-content">
+        <form name="formSuggestion" class="container text-right mt-3" ng-submit="showAlert = true">
+            <textarea class="form-control" id="suggesiton" name="suggesiton" rows="5"
+                placeholder="Enter your suggestion" ng-model="mySuggestion" required></textarea>
+            <button class="btn btn-sm btn-primary mt-1 px-5 py-1" ng-click="showAlert = true">Submit</button>
+        </form>
+        <div class="container mt-3">
+            <div class="alert alert-success fade" role="alert" ng-class="{show: showAlert}">
+                <div class="text-center">
+                    <h6>Are you sure want to send this suggestion?</h6>
+                    <small>This suggestion will be received by admin.</small>
+                </div>
+                <hr class="mb-1">
+                <p class="mb-0 text-right">
+                    <button class="btn btn-sm btn-secondary mt-1 px-3 py-1" ng-click="showAlert = false">Cancel</button>
+                    <button type="submit" class="btn btn-sm btn-primary mt-1 px-3 py-1"
+                        ng-click="send(mySuggestion)">Send</button>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

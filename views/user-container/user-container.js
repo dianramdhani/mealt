@@ -13,8 +13,8 @@ const feather = require('feather-icons');
             controller: _
         });
 
-    _.$inject = ['$scope', '$state', 'MainService'];
-    function _($scope, $state, MainService) {
+    _.$inject = ['$scope', '$state', '$element', '$compile', 'MainService'];
+    function _($scope, $state, $element, $compile, MainService) {
         let $ctrl = this;
         $ctrl.$onInit = () => {
             $scope.menu = 'dashboard';
@@ -28,6 +28,10 @@ const feather = require('feather-icons');
         $scope.logout = () => {
             MainService.logout();
             $state.go('login');
+        };
+
+        $scope.suggestion = () => {
+            $element.prepend($compile(`<suggestion></suggestion>`)($scope));
         };
     }
 })();
