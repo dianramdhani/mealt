@@ -29,6 +29,9 @@ document.addEventListener('deviceready', () => {
     require('./directives/tr-repeat-end.directive');
     require('./directives/tr-image-changer.directive');
 
+    // COMPONENTS
+    require('./components/drl-loading/drl-loading');
+
     // VIEWS
     require('./views/login/login');
     require('./views/user-container/user-container');
