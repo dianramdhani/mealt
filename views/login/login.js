@@ -10,10 +10,14 @@
             controller: _
         });
 
-    _.$inject = ['$scope', '$state', '$element', 'MainService'];
-    function _($scope, $state, $element, MainService) {
+    _.$inject = ['$scope', '$state', '$rootScope', 'MainService'];
+    function _($scope, $state, $rootScope, MainService) {
         let $ctrl = this;
-        $ctrl.$onInit = () => { };
+        $ctrl.$onInit = () => {
+            if (typeof $rootScope.global.user !== 'undefined') {
+                $state.go('user.dashboard');
+            }
+        };
 
         $scope.login = async () => {
             try {
