@@ -15,17 +15,22 @@ const feather = require('feather-icons');
 
     _.$inject = ['$scope', '$timeout', '$element', '$compile', 'MealRestService', 'UserReactionRestService'];
     function _($scope, $timeout, $element, $compile, MealRestService, UserReactionRestService) {
-        const reloadData = async () => {
-            $scope.meals = false;
-            $scope.meals = await MealRestService.getAllMeal().then(_ => _.data);
-            $scope.$apply();
-            $timeout(() => {
-                feather.replace();
+        const reloadData = () => {
+            let elLoding = $compile('<drl-loading></drl-loading>')($scope);
+            $element.prepend(elLoding);
+            MealRestService.getAllMeal().then(({ data }) => {
+                $scope.meals = data;
+                $timeout(() => {
+                    elLoding.remove();
+                    feather.replace();
+                });
             });
         };
         let $ctrl = this;
         $ctrl.$onInit = () => {
-            reloadData();
+            $timeout(() => {
+                reloadData();
+            });
             $scope.$watch('search', () => {
                 $timeout(() => {
                     feather.replace();
