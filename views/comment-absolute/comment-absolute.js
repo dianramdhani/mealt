@@ -33,6 +33,7 @@ const feather = require('feather-icons');
             $scope.user = $rootScope.global.user;
             $scope.flag = 'post';
             $timeout(reloadData);
+            document.addEventListener('backbutton', $scope.back, false);
         };
 
         $scope.send = async (comment) => {

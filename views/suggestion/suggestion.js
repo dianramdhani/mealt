@@ -20,6 +20,7 @@ const feather = require('feather-icons');
             $scope.showAlert = false;
             $scope.mySuggestion = '';
             $timeout(() => feather.replace());
+            document.addEventListener('backbutton', $scope.back, false);
         };
 
         $scope.back = () => {
