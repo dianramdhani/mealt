@@ -35,16 +35,14 @@ const feather = require('feather-icons');
                 $scope.breakfasts = data.map(_ => _.filter(__ => __.plan.period === 1));
                 $scope.lunches = data.map(_ => _.filter(__ => __.plan.period === 2));
                 $scope.days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
-
-                $timeout(() => {
-                    feather.replace();
-                });
+                $timeout(() => feather.replace());
             });
         };
 
         let $ctrl = this;
         $ctrl.$onInit = () => {
             reloadData();
+            document.addEventListener('backbutton', angular.noop, false);
         };
 
         $scope.like = async (mealId) => {
